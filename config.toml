@@ -1,0 +1,15 @@
+baseURL = "https://cigmah.github.io/"
+languageCode = "en-us"
+title = "The Coding Interest Group in Medicine and Healthcare"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "pygments"
+    tabWidth = 4

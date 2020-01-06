@@ -1,0 +1,78 @@
+{{ define "main" }}
+
+{{ $current := .Page }}
+
+<section class="normal-page">
+    <article id="side-navigation">
+        <article id="toggle-side-navigation-container">
+
+            {{ if .PrevInSection}}
+            <a href="{{.PrevInSection.Permalink}}" id="back"> &lt;&lt; </a>
+            {{ else }}
+            <a href="{{.Parent.Permalink}}" id="back"> &lt;&lt; </a>
+            {{ end }}
+
+            <button id="toggle-side-navigation" onClick="toggleSideNav()">Show Articles</button>
+
+            {{ if .NextInSection}}
+            <a href="{{.NextInSection.Permalink}}" id="next"> &gt;&gt; </a>
+            {{ end }}
+
+        </article>
+
+        <ul id="side-navigation-list">
+
+            <li class="side-navigation-section">
+                <a href="{{ .Parent.Permalink }}">
+                    {{ .Parent.Title }}
+                </a>
+            </li>
+
+            {{ range $page := (.Parent.Pages.Reverse) }}
+            <li
+                class="side-navigation-item {{if (eq $page $current)}} active {{end}}"
+            >
+                <a href="{{.Permalink}}">{{.Title}}</a>
+            </li>
+            {{ end }}
+
+        </ul>
+
+    </article>
+
+    <section id="container">
+
+        <article id="content">
+            <header id="content-header">
+            <h1 id="content-title"> {{.Title}} </h1>
+
+            {{ if (eq .Parent.Title "Blog") }}
+                <div id="tagline">
+                    <div id="date"> {{.Date.Format "2006 January 2"}} </div>
+                    <div id="author"> {{.Params.author}} </div>
+                    <div id="tags">
+                    {{ range .Params.tags }}
+                        <span id="tag"> #{{ . }} </span>
+                    {{ end }}
+                    </div>
+                </div>
+            {{ else }}
+                <div id="subtitle">
+                    <div> {{ .Description }} </div>
+                </div>
+            {{ end }}
+
+            </div>
+
+            </header>
+
+            <section id="content-body">
+                {{ .Content }}
+            </section>
+
+        </article>
+    </section>
+
+</section>
+
+{{ end }}

@@ -1,0 +1,44 @@
+{{ $current := .CurrentSection }}
+
+<ul id="nav-link-list" onClick="()">
+
+    <li
+        class="nav-link-list-item {{if (eq $current .Site.Home)}} active {{end}}"
+    >
+        <a
+            class="nav-link-list-link {{if (eq $current .Site.Home)}} active {{end}}"
+            id="nav-cigmah-link"
+            href={{ .Site.Home.Permalink }}
+        >
+            <img id="nav-cigmah-link-icon" src="/img/cigmah-icon-small.png">
+            <div>CIGMAH</div>
+        </a>
+    </li>
+
+  {{ range $section := .Site.Sections.ByWeight }}
+    <li
+        class="nav-link-list-item {{if (eq $current $section)}} active {{end}}"
+        >
+        <a
+            class="nav-link-list-link {{if (eq $current $section)}} active {{end}}"
+            href={{ .Permalink }}
+        >
+            {{ $section.Title }}
+        </a>
+    </li>
+    {{ end }}
+
+    <li
+        class="nav-link-list-item"
+        id="nav-right-item"
+        >
+        <a
+            href="https://aorta.cigmah.org"
+            id="nav-aorta-link"
+            class="nav-link-list-link"
+        >
+            <img id="nav-aorta-link-icon" src="/img/aorta-icon.png">
+            <div id="nav-aorta-link">AORTA</div>
+        </a>
+    </li>
+</ul>

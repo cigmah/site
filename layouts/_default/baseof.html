@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        <header>
+
+            <nav id="nav-menu-toggle" onClick="toggleNav()">
+                <div id="menu-text">☰</div>
+                <div id="cigmah-brand">
+                    <div id="cigmah-icon">
+                        <img src="{{.Site.BaseURL}}/img/cigmah-icon.png">
+                    </div>
+                    <div id="cigmah-text">
+                        CIGMAH
+                    </div>
+                </div>
+            </nav>
+
+            <nav id="nav-bar">
+                {{- partial "header.html" . -}}
+            </nav>
+
+        </header>
+
+        <main>
+            {{- block "main" . }}{{- end }}
+        </main>
+
+        <footer>
+            {{- partial "footer.html" . -}}
+        </footer>
+
+    </body>
+</html>
