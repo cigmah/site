@@ -12,11 +12,17 @@
         </article>
         <ul id="side-navigation-list">
 
+            {{ if and (.Parent) (ne .Parent .Site.Home) }}
+            <li class="side-navigation-parent">
+                <a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a>
+            </li>
+            {{end}}
+
             <li class="side-navigation-section active">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
             </li>
 
-            {{ range .Pages.Reverse }}
+            {{ range .Pages.ByDate}}
                 <li class="side-navigation-item">
                     <a href="{{.Permalink}}">{{.Title}}</a>
                 </li>

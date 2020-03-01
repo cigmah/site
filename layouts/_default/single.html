@@ -22,13 +22,20 @@
 
         <ul id="side-navigation-list">
 
+            {{ if and (.Parent.Parent) (ne .Parent.Parent .Site.Home) }}
+            <li class="side-navigation-parent">
+                <a href="{{ .Parent.Parent.Permalink }}">{{ .Parent.Parent.Title }}</a>
+            </li>
+            {{end}}
+
+
             <li class="side-navigation-section">
                 <a href="{{ .Parent.Permalink }}">
                     {{ .Parent.Title }}
                 </a>
             </li>
 
-            {{ range $page := (.Parent.Pages.Reverse) }}
+            {{ range $page := (.Parent.Pages.ByDate) }}
             <li
                 class="side-navigation-item {{if (eq $page $current)}} active {{end}}"
             >

@@ -1,0 +1,237 @@
+#+TITLE: Transfusion Tracing
+#+AUTHOR: CIGMAH Team
+#+DATE: <2019-08-02 Fri>
+#+PROPERTY: header-args :session transfusion-tracing :eval no-export :tangle generate.py :exports both
+#+OPTIONS: toc:nil
+
+* Problem
+
+Your hospital's infectious diseases department has queried two recent diagnoses
+of Hepatitis C in patients who have both received blood traced to the same blood
+donor. While the transmission of blood-borne infections through blood
+transfusions is /exceedingly/ rare in the modern age, your hospital has raised
+an inquiry for due caution.
+
+You have been provided with trimmed, deidentified transfusion logs over
+6 months (from 1st January 2020 to 30th June 2020) in the following format
+(first five lines):
+
+#+begin_src text
+2020-01-01    D012311    095703
+2020-01-01    D041530    028619
+2020-01-01    D007809    026117
+2020-01-01    D037810    021170
+2020-01-01    D099727    042349
+#+end_src
+
+You have 50000 lines in your input. Each log begins with a date of transfusion,
+a donor ID ("D" followed by six digits) and the ID of the patient who received a
+blood product traced to that donor. A single donor ID and patient ID correspond
+to a single donor/patient; some patients receive more than one blood transfusion
+and some donors contribute more than one blood product that is transfused, and
+therefore each may be repeated one or more times in the logs.
+
+You have also been provided with all the patients in this list of transfusion
+logs who have been diagnosed with Hepatitis C (though not necessarily as a
+result of transfusion) in 2020 in the following format (first five lines):
+
+#+begin_src text
+2020-02-15    062923
+2020-02-24    099772
+2020-03-09    085550
+2020-03-13    051412
+2020-03-14    055593
+#+end_src
+
+The first column lists the date of diagnosis, and the second lists the patient
+ID of the patient diagnosed, which matches with the patient ID in the
+transfusion logs. You may assume any patient not in this list was not diagnosed
+with Hepatitis C.
+
+*Your task* is to:
+
+1. Process the transfusion logs and list of Hepatitis C diagnoses into a
+   workable data format.
+2. Join the data and determine the ID of the source donor from whom patients are most
+   likely to have received a transfusion prior to being diagnosed with Hepatitis C.
+
+[[../input-transfusion-tracing-transfusions.txt][Click here to download the log of transfusions (1,612KB, .txt)]]
+
+[[../input-transfusion-tracing-infections.txt][Click here to download the list of Hepatitis C diagnoses (2KB, .txt).]]
+
+* Solution
+
+#+HTML: <details><summary>Click here to show the answer.</summary>
+The donor ID from which patients with Hepatitis C were most likely to have
+received a transfusion product from is *D086725* (six patients received a
+transfusion product from this donor prior to being diagnosed, versus the next
+most common with two patients).
+#+HTML: </details>
+
+#+HTML: <details><summary>Click here to show the solution.</summary>
+
+#+begin_quote
+We haven't explained this step-by-step in full yet, but here's the solution as
+it stands at the moment. A more detailed explanation will appear shortly.
+#+end_quote
+
+#+begin_src python
+with open('input-transfusion-tracing-infections.txt') as infile:
+    RAW_INFECTIONS = infile.readlines()
+with open('input-transfusion-tracing-transfusions.txt') as infile:
+    RAW_TRANSFUSIONS = infile.readlines()
+
+import re
+from typing import List
+from datetime import datetime
+
+def procdate(row):
+    datetime_string, *rest = row
+    return [ datetime.strptime(datetime_string, '%Y-%m-%d'), *rest ]
+
+INFECTIONS = [procdate(line.split()) for line in RAW_INFECTIONS]
+TRANSFUSIONS = [procdate(line.split()) for line in RAW_TRANSFUSIONS]
+
+def received_prior(infection_data):
+    return set([
+        transfusion[1] for transfusion in TRANSFUSIONS
+        if (transfusion[0] < infection_data[0] and transfusion[2] == infection_data[1])
+    ])
+
+POSSIBLE_DONORS = [ received_prior(infection) for infection in INFECTIONS ]
+
+from collections import Counter
+
+COUNTS = Counter([
+    donor
+    for donor_list in POSSIBLE_DONORS
+    for donor in donor_list
+])
+
+print(COUNTS.most_common()[:5])
+#+end_src
+#+HTML: </details>
+
+** Data Generation
+
+#+HTML: <details><summary>Click here to show the data generation code.</summary>
+We will define 5000 patients and 10000 transfusion events involving 1000 unique
+donor IDs.
+
+First, we initialise lists of patient IDs and donor IDs.
+
+#+begin_src python
+from random import choices
+
+NUM_PATIENTS = 20000
+NUM_TRANSFUSIONS = 50000
+NUM_DONORS = 5000
+
+PATIENT_IDS = ['{0:06d}'.format(i) for i in choices(range(100000), k=NUM_PATIENTS)]
+DONOR_IDS = ['D{0:06d}'.format(i) for i in choices(range(100000), k=NUM_DONORS)]
+
+#+end_src
+
+#+RESULTS:
+
+We will then select one of the donor IDs as the source of infection. The list is
+in a random order, so we can just choose the first one.
+
+#+begin_src python :results output
+CONTAMINATED_ID = DONOR_IDS[0]
+print(CONTAMINATED_ID)
+#+end_src
+
+#+RESULTS:
+: D086725
+
+Next, we will simulate a series of transfusion events. First, we create a
+collection of datetimes - let us make the datetimes between 2020-01-01 and
+2020-06-30.
+
+#+begin_src python
+from datetime import datetime, timedelta
+
+START_DATE = datetime(2020, 1, 1)
+END_DATE = datetime(2020, 6, 30)
+DURATION = (END_DATE - START_DATE).days
+
+EVENT_DELTAS = choices(range(DURATION), k=NUM_TRANSFUSIONS)
+EVENT_DELTAS.sort() # sort in place
+EVENT_DATETIMES = [START_DATE + timedelta(days=d) for d in EVENT_DELTAS]
+#+end_src
+
+#+RESULTS:
+
+For each event, we will randomly choose a donor ID and a patient ID. For donor
+IDs which don't match the ID of the contaminated product, we will set the
+probability of HCV infection to 0.001 (1 in 1000); note that this is /much/ higher
+than the actual risk of HCV infection from non-contaminated products + the
+actual incidence of HCV (we have set the rate here to accommodate the fact that
+we are not producing 100s of thousands of data points). If the ID matches the
+contaminated product, we will set the probability to 0.5.
+
+#+begin_src python
+from random import random, randint
+
+infections = []
+infected = set()
+
+SELECTED_DONORS = choices(DONOR_IDS, k=NUM_TRANSFUSIONS)
+SELECTED_PATIENTS = choices(PATIENT_IDS, k=NUM_TRANSFUSIONS)
+
+EVENTS = list(zip(EVENT_DATETIMES, SELECTED_DONORS, SELECTED_PATIENTS))
+
+for event, donor, patient in EVENTS:
+
+    if donor == CONTAMINATED_ID:
+        chance_of_infection = 0.5
+    else:
+        chance_of_infection = 0.001
+
+    if random() < chance_of_infection:
+        if patient not in infected:
+            incubation_period = randint(14, 180)
+            infections.append((event + timedelta(days=incubation_period), patient))
+            infected.add(patient)
+
+# Sort infections in-place by discovery time.
+infections.sort(key=lambda infection: infection[0])
+
+#+end_src
+
+#+RESULTS:
+
+Finally, we format and save the results.
+
+#+begin_src python
+from typing import Tuple
+
+# FORMATTING EVENTS
+def format_event(event: Tuple[datetime, str, str]) -> str:
+    formatted = f'{event[0]:%Y-%m-%d}    {event[1]}    {event[2]}'
+    return formatted
+
+FORMATTED_EVENTS = [format_event(event) for event in EVENTS]
+SEPARATOR = '\n'
+EVENT_STRING = SEPARATOR.join(FORMATTED_EVENTS)
+
+# FORMATTING INFECTIONS
+def format_infection(infection: Tuple[datetime, str]) -> str:
+    formatted = f'{infection[0]:%Y-%m-%d}    {infection[1]}'
+    return formatted
+
+FORMATTED_INFECTIONS = [format_infection(infection) for infection in infections]
+INFECTION_STRING = SEPARATOR.join(FORMATTED_INFECTIONS)
+
+# FILE IO
+EVENT_FILENAME = 'input-transfusion-tracing-transfusions.txt'
+INFECTION_FILENAME = 'input-transfusion-tracing-infections.txt'
+
+with open(EVENT_FILENAME, 'w+') as outfile:
+    outfile.write(EVENT_STRING)
+
+with open(INFECTION_FILENAME, 'w+') as outfile:
+    outfile.write(INFECTION_STRING)
+#+end_src
+#+HTML: </details>

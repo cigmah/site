@@ -1,0 +1,731 @@
+2020/01/01    I feel SAD today.
+2020/01/02    I feel BLEAK today.
+2020/01/03    I feel NOT BAD today.
+2020/01/04    I feel HOPELESS today.
+2020/01/05    I feel LOW today.
+2020/01/06    I feel LOW today.
+2020/01/07    I feel STRESSED today.
+2020/01/08    I feel SATISFIED today.
+2020/01/09    I feel TIRED today.
+2020/01/10    I feel JOYFUL today.
+2020/01/11    I feel FLAT today.
+2020/01/12    I feel SATISFIED today.
+2020/01/13    I feel NOT BAD today.
+2020/01/14    I feel REFRESHED today.
+2020/01/15    I feel REFRESHED today.
+2020/01/16    I feel SATISFIED today.
+2020/01/17    I feel OKAY today.
+2020/01/18    I feel TEARY today.
+2020/01/19    I feel SATISFIED today.
+2020/01/20    I feel LOW today.
+2020/01/21    I feel SO-SO today.
+2020/01/22    I feel NOT BAD today.
+2020/01/23    I feel LOW today.
+2020/01/24    I feel SATISFIED today.
+2020/01/25    I feel FINE today.
+2020/01/26    I feel OKAY today.
+2020/01/27    I feel FLAT today.
+2020/01/28    I feel SATISFIED today.
+2020/01/29    I feel BLEAK today.
+2020/01/30    I feel FLAT today.
+2020/01/31    I feel TEARY today.
+2020/02/01    I feel SAD today.
+2020/02/02    I feel BLEAK today.
+2020/02/03    I feel VERY LOW today.
+2020/02/04    I feel DEPRESSED today.
+2020/02/05    I feel VERY LOW today.
+2020/02/06    I feel HOPELESS today.
+2020/02/07    I feel BLEAK today.
+2020/02/08    I feel VERY LOW today.
+2020/02/09    I feel DEPRESSED today.
+2020/02/10    I feel BLEAK today.
+2020/02/11    I feel HOPELESS today.
+2020/02/12    I feel HOPELESS today.
+2020/02/13    I feel VERY LOW today.
+2020/02/14    I feel HOPELESS today.
+2020/02/15    I feel BLEAK today.
+2020/02/16    I feel HOPELESS today.
+2020/02/17    I feel BLEAK today.
+2020/02/18    I feel VERY LOW today.
+2020/02/19    I feel VERY LOW today.
+2020/02/20    I feel BLEAK today.
+2020/02/21    I feel DEPRESSED today.
+2020/02/22    I feel HOPELESS today.
+2020/02/23    I feel SAD today.
+2020/02/24    I feel TIRED today.
+2020/02/25    I feel DEPRESSED today.
+2020/02/26    I feel SAD today.
+2020/02/27    I feel TEARY today.
+2020/02/28    I feel TIRED today.
+2020/02/29    I feel STRESSED today.
+2020/03/01    I feel NOT BAD today.
+2020/03/02    I feel NOT BAD today.
+2020/03/03    I feel LOW today.
+2020/03/04    I feel FLAT today.
+2020/03/05    I feel OKAY today.
+2020/03/06    I feel OKAY today.
+2020/03/07    I feel NOT BAD today.
+2020/03/08    I feel JOYFUL today.
+2020/03/09    I feel FLAT today.
+2020/03/10    I feel SAD today.
+2020/03/11    I feel SAD today.
+2020/03/12    I feel TIRED today.
+2020/03/13    I feel REFRESHED today.
+2020/03/14    I feel NOT BAD today.
+2020/03/15    I feel NOT BAD today.
+2020/03/16    I feel STRESSED today.
+2020/03/17    I feel LOW today.
+2020/03/18    I feel FINE today.
+2020/03/19    I feel SO-SO today.
+2020/03/20    I feel LOW today.
+2020/03/21    I feel TEARY today.
+2020/03/22    I feel STRESSED today.
+2020/03/23    I feel FINE today.
+2020/03/24    I feel TEARY today.
+2020/03/25    I feel DEPRESSED today.
+2020/03/26    I feel SAD today.
+2020/03/27    I feel HOPELESS today.
+2020/03/28    I feel VERY LOW today.
+2020/03/29    I feel LOW today.
+2020/03/30    I feel DEPRESSED today.
+2020/03/31    I feel BLEAK today.
+2020/04/01    I feel HOPELESS today.
+2020/04/02    I feel BLEAK today.
+2020/04/03    I feel BLEAK today.
+2020/04/04    I feel VERY LOW today.
+2020/04/05    I feel BLEAK today.
+2020/04/06    I feel DEPRESSED today.
+2020/04/07    I feel DEPRESSED today.
+2020/04/08    I feel DEPRESSED today.
+2020/04/09    I feel DEPRESSED today.
+2020/04/10    I feel BLEAK today.
+2020/04/11    I feel VERY LOW today.
+2020/04/12    I feel DEPRESSED today.
+2020/04/13    I feel BLEAK today.
+2020/04/14    I feel BLEAK today.
+2020/04/15    I feel VERY LOW today.
+2020/04/16    I feel VERY LOW today.
+2020/04/17    I feel BLEAK today.
+2020/04/18    I feel VERY LOW today.
+2020/04/19    I feel HOPELESS today.
+2020/04/20    I feel DEPRESSED today.
+2020/04/21    I feel SAD today.
+2020/04/22    I feel HOPELESS today.
+2020/04/23    I feel FLAT today.
+2020/04/24    I feel STRESSED today.
+2020/04/25    I feel BLEAK today.
+2020/04/26    I feel TEARY today.
+2020/04/27    I feel SATISFIED today.
+2020/04/28    I feel NOT BAD today.
+2020/04/29    I feel NOT BAD today.
+2020/04/30    I feel SAD today.
+2020/05/01    I feel OKAY today.
+2020/05/02    I feel REFRESHED today.
+2020/05/03    I feel SO-SO today.
+2020/05/04    I feel HAPPY today.
+2020/05/05    I feel FLAT today.
+2020/05/06    I feel GOOD today.
+2020/05/07    I feel TIRED today.
+2020/05/08    I feel SO-SO today.
+2020/05/09    I feel SATISFIED today.
+2020/05/10    I feel REFRESHED today.
+2020/05/11    I feel FINE today.
+2020/05/12    I feel STRESSED today.
+2020/05/13    I feel TIRED today.
+2020/05/14    I feel SO-SO today.
+2020/05/15    I feel LOW today.
+2020/05/16    I feel TEARY today.
+2020/05/17    I feel SO-SO today.
+2020/05/18    I feel VERY LOW today.
+2020/05/19    I feel HOPELESS today.
+2020/05/20    I feel TIRED today.
+2020/05/21    I feel SAD today.
+2020/05/22    I feel DEPRESSED today.
+2020/05/23    I feel HOPELESS today.
+2020/05/24    I feel DEPRESSED today.
+2020/05/25    I feel VERY LOW today.
+2020/05/26    I feel DEPRESSED today.
+2020/05/27    I feel DEPRESSED today.
+2020/05/28    I feel BLEAK today.
+2020/05/29    I feel VERY LOW today.
+2020/05/30    I feel DEPRESSED today.
+2020/05/31    I feel HOPELESS today.
+2020/06/01    I feel DEPRESSED today.
+2020/06/02    I feel VERY LOW today.
+2020/06/03    I feel VERY LOW today.
+2020/06/04    I feel DEPRESSED today.
+2020/06/05    I feel HOPELESS today.
+2020/06/06    I feel DEPRESSED today.
+2020/06/07    I feel HOPELESS today.
+2020/06/08    I feel BLEAK today.
+2020/06/09    I feel HOPELESS today.
+2020/06/10    I feel DEPRESSED today.
+2020/06/11    I feel VERY LOW today.
+2020/06/12    I feel DEPRESSED today.
+2020/06/13    I feel HOPELESS today.
+2020/06/14    I feel STRESSED today.
+2020/06/15    I feel VERY LOW today.
+2020/06/16    I feel TIRED today.
+2020/06/17    I feel BLEAK today.
+2020/06/18    I feel STRESSED today.
+2020/06/19    I feel TEARY today.
+2020/06/20    I feel STRESSED today.
+2020/06/21    I feel SATISFIED today.
+2020/06/22    I feel BLEAK today.
+2020/06/23    I feel TEARY today.
+2020/06/24    I feel FLAT today.
+2020/06/25    I feel TEARY today.
+2020/06/26    I feel TEARY today.
+2020/06/27    I feel SO-SO today.
+2020/06/28    I feel FINE today.
+2020/06/29    I feel FINE today.
+2020/06/30    I feel FINE today.
+2020/07/01    I feel SO-SO today.
+2020/07/02    I feel JOYFUL today.
+2020/07/03    I feel GOOD today.
+2020/07/04    I feel GOOD today.
+2020/07/05    I feel TIRED today.
+2020/07/06    I feel TIRED today.
+2020/07/07    I feel NOT BAD today.
+2020/07/08    I feel SATISFIED today.
+2020/07/09    I feel SAD today.
+2020/07/10    I feel OKAY today.
+2020/07/11    I feel LOW today.
+2020/07/12    I feel FINE today.
+2020/07/13    I feel STRESSED today.
+2020/07/14    I feel FLAT today.
+2020/07/15    I feel BLEAK today.
+2020/07/16    I feel SAD today.
+2020/07/17    I feel FLAT today.
+2020/07/18    I feel FLAT today.
+2020/07/19    I feel TIRED today.
+2020/07/20    I feel DEPRESSED today.
+2020/07/21    I feel VERY LOW today.
+2020/07/22    I feel BLEAK today.
+2020/07/23    I feel HOPELESS today.
+2020/07/24    I feel HOPELESS today.
+2020/07/25    I feel DEPRESSED today.
+2020/07/26    I feel HOPELESS today.
+2020/07/27    I feel HOPELESS today.
+2020/07/28    I feel BLEAK today.
+2020/07/29    I feel VERY LOW today.
+2020/07/30    I feel VERY LOW today.
+2020/07/31    I feel HOPELESS today.
+2020/08/01    I feel DEPRESSED today.
+2020/08/02    I feel VERY LOW today.
+2020/08/03    I feel HOPELESS today.
+2020/08/04    I feel BLEAK today.
+2020/08/05    I feel DEPRESSED today.
+2020/08/06    I feel BLEAK today.
+2020/08/07    I feel VERY LOW today.
+2020/08/08    I feel HOPELESS today.
+2020/08/09    I feel VERY LOW today.
+2020/08/10    I feel FLAT today.
+2020/08/11    I feel FLAT today.
+2020/08/12    I feel LOW today.
+2020/08/13    I feel BLEAK today.
+2020/08/14    I feel SATISFIED today.
+2020/08/15    I feel OKAY today.
+2020/08/16    I feel LOW today.
+2020/08/17    I feel SAD today.
+2020/08/18    I feel NOT BAD today.
+2020/08/19    I feel OKAY today.
+2020/08/20    I feel FLAT today.
+2020/08/21    I feel SO-SO today.
+2020/08/22    I feel SAD today.
+2020/08/23    I feel TIRED today.
+2020/08/24    I feel REFRESHED today.
+2020/08/25    I feel OKAY today.
+2020/08/26    I feel STRESSED today.
+2020/08/27    I feel LOW today.
+2020/08/28    I feel NOT BAD today.
+2020/08/29    I feel STRESSED today.
+2020/08/30    I feel NOT BAD today.
+2020/08/31    I feel SATISFIED today.
+2020/09/01    I feel FINE today.
+2020/09/02    I feel SATISFIED today.
+2020/09/03    I feel LOW today.
+2020/09/04    I feel LOW today.
+2020/09/05    I feel SO-SO today.
+2020/09/06    I feel NOT BAD today.
+2020/09/07    I feel SATISFIED today.
+2020/09/08    I feel LOW today.
+2020/09/09    I feel HOPELESS today.
+2020/09/10    I feel STRESSED today.
+2020/09/11    I feel HOPELESS today.
+2020/09/12    I feel TIRED today.
+2020/09/13    I feel HOPELESS today.
+2020/09/14    I feel BLEAK today.
+2020/09/15    I feel BLEAK today.
+2020/09/16    I feel BLEAK today.
+2020/09/17    I feel DEPRESSED today.
+2020/09/18    I feel DEPRESSED today.
+2020/09/19    I feel BLEAK today.
+2020/09/20    I feel DEPRESSED today.
+2020/09/21    I feel BLEAK today.
+2020/09/22    I feel DEPRESSED today.
+2020/09/23    I feel DEPRESSED today.
+2020/09/24    I feel DEPRESSED today.
+2020/09/25    I feel DEPRESSED today.
+2020/09/26    I feel HOPELESS today.
+2020/09/27    I feel VERY LOW today.
+2020/09/28    I feel BLEAK today.
+2020/09/29    I feel HOPELESS today.
+2020/09/30    I feel HOPELESS today.
+2020/10/01    I feel BLEAK today.
+2020/10/02    I feel VERY LOW today.
+2020/10/03    I feel DEPRESSED today.
+2020/10/04    I feel BLEAK today.
+2020/10/05    I feel VERY LOW today.
+2020/10/06    I feel TEARY today.
+2020/10/07    I feel BLEAK today.
+2020/10/08    I feel VERY LOW today.
+2020/10/09    I feel VERY LOW today.
+2020/10/10    I feel BLEAK today.
+2020/10/11    I feel SATISFIED today.
+2020/10/12    I feel HOPELESS today.
+2020/10/13    I feel SAD today.
+2020/10/14    I feel SATISFIED today.
+2020/10/15    I feel SAD today.
+2020/10/16    I feel FLAT today.
+2020/10/17    I feel SATISFIED today.
+2020/10/18    I feel GOOD today.
+2020/10/19    I feel TEARY today.
+2020/10/20    I feel NOT BAD today.
+2020/10/21    I feel JOYFUL today.
+2020/10/22    I feel NOT BAD today.
+2020/10/23    I feel SO-SO today.
+2020/10/24    I feel SO-SO today.
+2020/10/25    I feel SO-SO today.
+2020/10/26    I feel OKAY today.
+2020/10/27    I feel SATISFIED today.
+2020/10/28    I feel FINE today.
+2020/10/29    I feel FLAT today.
+2020/10/30    I feel SAD today.
+2020/10/31    I feel TEARY today.
+2020/11/01    I feel SO-SO today.
+2020/11/02    I feel TEARY today.
+2020/11/03    I feel HOPELESS today.
+2020/11/04    I feel HOPELESS today.
+2020/11/05    I feel VERY LOW today.
+2020/11/06    I feel DEPRESSED today.
+2020/11/07    I feel FLAT today.
+2020/11/08    I feel DEPRESSED today.
+2020/11/09    I feel VERY LOW today.
+2020/11/10    I feel BLEAK today.
+2020/11/11    I feel BLEAK today.
+2020/11/12    I feel HOPELESS today.
+2020/11/13    I feel DEPRESSED today.
+2020/11/14    I feel VERY LOW today.
+2020/11/15    I feel DEPRESSED today.
+2020/11/16    I feel HOPELESS today.
+2020/11/17    I feel VERY LOW today.
+2020/11/18    I feel VERY LOW today.
+2020/11/19    I feel DEPRESSED today.
+2020/11/20    I feel VERY LOW today.
+2020/11/21    I feel HOPELESS today.
+2020/11/22    I feel DEPRESSED today.
+2020/11/23    I feel BLEAK today.
+2020/11/24    I feel HOPELESS today.
+2020/11/25    I feel VERY LOW today.
+2020/11/26    I feel DEPRESSED today.
+2020/11/27    I feel HOPELESS today.
+2020/11/28    I feel STRESSED today.
+2020/11/29    I feel HOPELESS today.
+2020/11/30    I feel HOPELESS today.
+2020/12/01    I feel DEPRESSED today.
+2020/12/02    I feel SAD today.
+2020/12/03    I feel HOPELESS today.
+2020/12/04    I feel STRESSED today.
+2020/12/05    I feel OKAY today.
+2020/12/06    I feel TEARY today.
+2020/12/07    I feel FINE today.
+2020/12/08    I feel SAD today.
+2020/12/09    I feel SATISFIED today.
+2020/12/10    I feel SATISFIED today.
+2020/12/11    I feel TIRED today.
+2020/12/12    I feel REFRESHED today.
+2020/12/13    I feel STRESSED today.
+2020/12/14    I feel LOW today.
+2020/12/15    I feel SATISFIED today.
+2020/12/16    I feel TEARY today.
+2020/12/17    I feel FINE today.
+2020/12/18    I feel REFRESHED today.
+2020/12/19    I feel FLAT today.
+2020/12/20    I feel STRESSED today.
+2020/12/21    I feel SATISFIED today.
+2020/12/22    I feel TIRED today.
+2020/12/23    I feel NOT BAD today.
+2020/12/24    I feel FLAT today.
+2020/12/25    I feel SATISFIED today.
+2020/12/26    I feel TIRED today.
+2020/12/27    I feel LOW today.
+2020/12/28    I feel TEARY today.
+2020/12/29    I feel VERY LOW today.
+2020/12/30    I feel BLEAK today.
+2020/12/31    I feel BLEAK today.
+2021/01/01    I feel DEPRESSED today.
+2021/01/02    I feel HOPELESS today.
+2021/01/03    I feel TEARY today.
+2021/01/04    I feel HOPELESS today.
+2021/01/05    I feel HOPELESS today.
+2021/01/06    I feel HOPELESS today.
+2021/01/07    I feel DEPRESSED today.
+2021/01/08    I feel DEPRESSED today.
+2021/01/09    I feel VERY LOW today.
+2021/01/10    I feel VERY LOW today.
+2021/01/11    I feel HOPELESS today.
+2021/01/12    I feel BLEAK today.
+2021/01/13    I feel BLEAK today.
+2021/01/14    I feel DEPRESSED today.
+2021/01/15    I feel HOPELESS today.
+2021/01/16    I feel DEPRESSED today.
+2021/01/17    I feel VERY LOW today.
+2021/01/18    I feel BLEAK today.
+2021/01/19    I feel BLEAK today.
+2021/01/20    I feel DEPRESSED today.
+2021/01/21    I feel VERY LOW today.
+2021/01/22    I feel DEPRESSED today.
+2021/01/23    I feel DEPRESSED today.
+2021/01/24    I feel VERY LOW today.
+2021/01/25    I feel VERY LOW today.
+2021/01/26    I feel HOPELESS today.
+2021/01/27    I feel SAD today.
+2021/01/28    I feel VERY LOW today.
+2021/01/29    I feel SAD today.
+2021/01/30    I feel VERY LOW today.
+2021/01/31    I feel FINE today.
+2021/02/01    I feel OKAY today.
+2021/02/02    I feel NOT BAD today.
+2021/02/03    I feel SO-SO today.
+2021/02/04    I feel SAD today.
+2021/02/05    I feel OKAY today.
+2021/02/06    I feel JOYFUL today.
+2021/02/07    I feel SO-SO today.
+2021/02/08    I feel HAPPY today.
+2021/02/09    I feel FINE today.
+2021/02/10    I feel FLAT today.
+2021/02/11    I feel OKAY today.
+2021/02/12    I feel FINE today.
+2021/02/13    I feel LOW today.
+2021/02/14    I feel SO-SO today.
+2021/02/15    I feel HAPPY today.
+2021/02/16    I feel SATISFIED today.
+2021/02/17    I feel FINE today.
+2021/02/18    I feel NOT BAD today.
+2021/02/19    I feel FINE today.
+2021/02/20    I feel LOW today.
+2021/02/21    I feel TIRED today.
+2021/02/22    I feel STRESSED today.
+2021/02/23    I feel HOPELESS today.
+2021/02/24    I feel DEPRESSED today.
+2021/02/25    I feel BLEAK today.
+2021/02/26    I feel HOPELESS today.
+2021/02/27    I feel VERY LOW today.
+2021/02/28    I feel HOPELESS today.
+2021/03/01    I feel HOPELESS today.
+2021/03/02    I feel HOPELESS today.
+2021/03/03    I feel VERY LOW today.
+2021/03/04    I feel DEPRESSED today.
+2021/03/05    I feel VERY LOW today.
+2021/03/06    I feel VERY LOW today.
+2021/03/07    I feel VERY LOW today.
+2021/03/08    I feel DEPRESSED today.
+2021/03/09    I feel VERY LOW today.
+2021/03/10    I feel VERY LOW today.
+2021/03/11    I feel BLEAK today.
+2021/03/12    I feel DEPRESSED today.
+2021/03/13    I feel BLEAK today.
+2021/03/14    I feel VERY LOW today.
+2021/03/15    I feel HOPELESS today.
+2021/03/16    I feel VERY LOW today.
+2021/03/17    I feel BLEAK today.
+2021/03/18    I feel VERY LOW today.
+2021/03/19    I feel LOW today.
+2021/03/20    I feel BLEAK today.
+2021/03/21    I feel BLEAK today.
+2021/03/22    I feel DEPRESSED today.
+2021/03/23    I feel DEPRESSED today.
+2021/03/24    I feel VERY LOW today.
+2021/03/25    I feel BLEAK today.
+2021/03/26    I feel FLAT today.
+2021/03/27    I feel NOT BAD today.
+2021/03/28    I feel NOT BAD today.
+2021/03/29    I feel NOT BAD today.
+2021/03/30    I feel SATISFIED today.
+2021/03/31    I feel SAD today.
+2021/04/01    I feel LOW today.
+2021/04/02    I feel TEARY today.
+2021/04/03    I feel OKAY today.
+2021/04/04    I feel REFRESHED today.
+2021/04/05    I feel GOOD today.
+2021/04/06    I feel HAPPY today.
+2021/04/07    I feel JOYFUL today.
+2021/04/08    I feel OKAY today.
+2021/04/09    I feel REFRESHED today.
+2021/04/10    I feel GOOD today.
+2021/04/11    I feel GOOD today.
+2021/04/12    I feel JOYFUL today.
+2021/04/13    I feel JOYFUL today.
+2021/04/14    I feel HAPPY today.
+2021/04/15    I feel REFRESHED today.
+2021/04/16    I feel ECSTATIC today.
+2021/04/17    I feel GOOD today.
+2021/04/18    I feel BRILLIANT today.
+2021/04/19    I feel JOYFUL today.
+2021/04/20    I feel REFRESHED today.
+2021/04/21    I feel FANTASTIC today.
+2021/04/22    I feel HAPPY today.
+2021/04/23    I feel GOOD today.
+2021/04/24    I feel REFRESHED today.
+2021/04/25    I feel HAPPY today.
+2021/04/26    I feel REFRESHED today.
+2021/04/27    I feel SO-SO today.
+2021/04/28    I feel REFRESHED today.
+2021/04/29    I feel REFRESHED today.
+2021/04/30    I feel FINE today.
+2021/05/01    I feel OKAY today.
+2021/05/02    I feel JOYFUL today.
+2021/05/03    I feel NOT BAD today.
+2021/05/04    I feel REFRESHED today.
+2021/05/05    I feel SATISFIED today.
+2021/05/06    I feel OKAY today.
+2021/05/07    I feel FINE today.
+2021/05/08    I feel SO-SO today.
+2021/05/09    I feel SO-SO today.
+2021/05/10    I feel OKAY today.
+2021/05/11    I feel SATISFIED today.
+2021/05/12    I feel SATISFIED today.
+2021/05/13    I feel FINE today.
+2021/05/14    I feel SATISFIED today.
+2021/05/15    I feel TEARY today.
+2021/05/16    I feel NOT BAD today.
+2021/05/17    I feel NOT BAD today.
+2021/05/18    I feel OKAY today.
+2021/05/19    I feel OKAY today.
+2021/05/20    I feel SO-SO today.
+2021/05/21    I feel SATISFIED today.
+2021/05/22    I feel NOT BAD today.
+2021/05/23    I feel OKAY today.
+2021/05/24    I feel FINE today.
+2021/05/25    I feel SO-SO today.
+2021/05/26    I feel JOYFUL today.
+2021/05/27    I feel SO-SO today.
+2021/05/28    I feel OKAY today.
+2021/05/29    I feel GOOD today.
+2021/05/30    I feel SATISFIED today.
+2021/05/31    I feel NOT BAD today.
+2021/06/01    I feel REFRESHED today.
+2021/06/02    I feel JOYFUL today.
+2021/06/03    I feel REFRESHED today.
+2021/06/04    I feel REFRESHED today.
+2021/06/05    I feel ELEVATED today.
+2021/06/06    I feel HAPPY today.
+2021/06/07    I feel JOYFUL today.
+2021/06/08    I feel ELATED today.
+2021/06/09    I feel FANTASTIC today.
+2021/06/10    I feel AMAZING today.
+2021/06/11    I feel ON TOP OF THE WORLD today.
+2021/06/12    I feel JOYFUL today.
+2021/06/13    I feel GOOD today.
+2021/06/14    I feel REFRESHED today.
+2021/06/15    I feel GOOD today.
+2021/06/16    I feel ELATED today.
+2021/06/17    I feel ELEVATED today.
+2021/06/18    I feel ECSTATIC today.
+2021/06/19    I feel JOYFUL today.
+2021/06/20    I feel JOYFUL today.
+2021/06/21    I feel REFRESHED today.
+2021/06/22    I feel JOYFUL today.
+2021/06/23    I feel HAPPY today.
+2021/06/24    I feel SO-SO today.
+2021/06/25    I feel NOT BAD today.
+2021/06/26    I feel SO-SO today.
+2021/06/27    I feel REFRESHED today.
+2021/06/28    I feel REFRESHED today.
+2021/06/29    I feel OKAY today.
+2021/06/30    I feel FINE today.
+2021/07/01    I feel SO-SO today.
+2021/07/02    I feel OKAY today.
+2021/07/03    I feel NOT BAD today.
+2021/07/04    I feel SO-SO today.
+2021/07/05    I feel FLAT today.
+2021/07/06    I feel NOT BAD today.
+2021/07/07    I feel SATISFIED today.
+2021/07/08    I feel SAD today.
+2021/07/09    I feel NOT BAD today.
+2021/07/10    I feel SO-SO today.
+2021/07/11    I feel FINE today.
+2021/07/12    I feel TEARY today.
+2021/07/13    I feel FINE today.
+2021/07/14    I feel NOT BAD today.
+2021/07/15    I feel SO-SO today.
+2021/07/16    I feel NOT BAD today.
+2021/07/17    I feel FINE today.
+2021/07/18    I feel FINE today.
+2021/07/19    I feel OKAY today.
+2021/07/20    I feel FINE today.
+2021/07/21    I feel GOOD today.
+2021/07/22    I feel NOT BAD today.
+2021/07/23    I feel SATISFIED today.
+2021/07/24    I feel SO-SO today.
+2021/07/25    I feel HAPPY today.
+2021/07/26    I feel SO-SO today.
+2021/07/27    I feel HAPPY today.
+2021/07/28    I feel REFRESHED today.
+2021/07/29    I feel GOOD today.
+2021/07/30    I feel REFRESHED today.
+2021/07/31    I feel REFRESHED today.
+2021/08/01    I feel REFRESHED today.
+2021/08/02    I feel FANTASTIC today.
+2021/08/03    I feel GOOD today.
+2021/08/04    I feel HAPPY today.
+2021/08/05    I feel GOOD today.
+2021/08/06    I feel GOOD today.
+2021/08/07    I feel JOYFUL today.
+2021/08/08    I feel HAPPY today.
+2021/08/09    I feel JOYFUL today.
+2021/08/10    I feel REFRESHED today.
+2021/08/11    I feel GOOD today.
+2021/08/12    I feel GOOD today.
+2021/08/13    I feel REFRESHED today.
+2021/08/14    I feel HAPPY today.
+2021/08/15    I feel JOYFUL today.
+2021/08/16    I feel JOYFUL today.
+2021/08/17    I feel NOT BAD today.
+2021/08/18    I feel NOT BAD today.
+2021/08/19    I feel REFRESHED today.
+2021/08/20    I feel JOYFUL today.
+2021/08/21    I feel HAPPY today.
+2021/08/22    I feel JOYFUL today.
+2021/08/23    I feel HAPPY today.
+2021/08/24    I feel SO-SO today.
+2021/08/25    I feel FINE today.
+2021/08/26    I feel OKAY today.
+2021/08/27    I feel NOT BAD today.
+2021/08/28    I feel NOT BAD today.
+2021/08/29    I feel FINE today.
+2021/08/30    I feel SO-SO today.
+2021/08/31    I feel SO-SO today.
+2021/09/01    I feel FINE today.
+2021/09/02    I feel SATISFIED today.
+2021/09/03    I feel SO-SO today.
+2021/09/04    I feel SAD today.
+2021/09/05    I feel NOT BAD today.
+2021/09/06    I feel OKAY today.
+2021/09/07    I feel TEARY today.
+2021/09/08    I feel OKAY today.
+2021/09/09    I feel NOT BAD today.
+2021/09/10    I feel LOW today.
+2021/09/11    I feel SATISFIED today.
+2021/09/12    I feel NOT BAD today.
+2021/09/13    I feel FINE today.
+2021/09/14    I feel NOT BAD today.
+2021/09/15    I feel HAPPY today.
+2021/09/16    I feel JOYFUL today.
+2021/09/17    I feel REFRESHED today.
+2021/09/18    I feel FINE today.
+2021/09/19    I feel JOYFUL today.
+2021/09/20    I feel OKAY today.
+2021/09/21    I feel JOYFUL today.
+2021/09/22    I feel HAPPY today.
+2021/09/23    I feel JOYFUL today.
+2021/09/24    I feel JOYFUL today.
+2021/09/25    I feel GOOD today.
+2021/09/26    I feel REFRESHED today.
+2021/09/27    I feel GOOD today.
+2021/09/28    I feel GOOD today.
+2021/09/29    I feel GOOD today.
+2021/09/30    I feel JOYFUL today.
+2021/10/01    I feel FANTASTIC today.
+2021/10/02    I feel GOOD today.
+2021/10/03    I feel ON TOP OF THE WORLD today.
+2021/10/04    I feel AMAZING today.
+2021/10/05    I feel JOYFUL today.
+2021/10/06    I feel REFRESHED today.
+2021/10/07    I feel JOYFUL today.
+2021/10/08    I feel REFRESHED today.
+2021/10/09    I feel HAPPY today.
+2021/10/10    I feel GOOD today.
+2021/10/11    I feel JOYFUL today.
+2021/10/12    I feel JOYFUL today.
+2021/10/13    I feel REFRESHED today.
+2021/10/14    I feel REFRESHED today.
+2021/10/15    I feel OKAY today.
+2021/10/16    I feel HAPPY today.
+2021/10/17    I feel JOYFUL today.
+2021/10/18    I feel OKAY today.
+2021/10/19    I feel NOT BAD today.
+2021/10/20    I feel FINE today.
+2021/10/21    I feel SO-SO today.
+2021/10/22    I feel NOT BAD today.
+2021/10/23    I feel OKAY today.
+2021/10/24    I feel SATISFIED today.
+2021/10/25    I feel FINE today.
+2021/10/26    I feel TEARY today.
+2021/10/27    I feel FINE today.
+2021/10/28    I feel FINE today.
+2021/10/29    I feel TEARY today.
+2021/10/30    I feel NOT BAD today.
+2021/10/31    I feel FINE today.
+2021/11/01    I feel SO-SO today.
+2021/11/02    I feel OKAY today.
+2021/11/03    I feel SAD today.
+2021/11/04    I feel SO-SO today.
+2021/11/05    I feel NOT BAD today.
+2021/11/06    I feel SO-SO today.
+2021/11/07    I feel NOT BAD today.
+2021/11/08    I feel SO-SO today.
+2021/11/09    I feel OKAY today.
+2021/11/10    I feel SATISFIED today.
+2021/11/11    I feel SO-SO today.
+2021/11/12    I feel FINE today.
+2021/11/13    I feel REFRESHED today.
+2021/11/14    I feel FINE today.
+2021/11/15    I feel REFRESHED today.
+2021/11/16    I feel OKAY today.
+2021/11/17    I feel HAPPY today.
+2021/11/18    I feel HAPPY today.
+2021/11/19    I feel GOOD today.
+2021/11/20    I feel HAPPY today.
+2021/11/21    I feel ELEVATED today.
+2021/11/22    I feel HAPPY today.
+2021/11/23    I feel BRILLIANT today.
+2021/11/24    I feel HAPPY today.
+2021/11/25    I feel HAPPY today.
+2021/11/26    I feel JOYFUL today.
+2021/11/27    I feel REFRESHED today.
+2021/11/28    I feel ON TOP OF THE WORLD today.
+2021/11/29    I feel HAPPY today.
+2021/11/30    I feel ELATED today.
+2021/12/01    I feel ELEVATED today.
+2021/12/02    I feel JOYFUL today.
+2021/12/03    I feel HAPPY today.
+2021/12/04    I feel HAPPY today.
+2021/12/05    I feel REFRESHED today.
+2021/12/06    I feel GOOD today.
+2021/12/07    I feel JOYFUL today.
+2021/12/08    I feel SO-SO today.
+2021/12/09    I feel REFRESHED today.
+2021/12/10    I feel HAPPY today.
+2021/12/11    I feel HAPPY today.
+2021/12/12    I feel SATISFIED today.
+2021/12/13    I feel JOYFUL today.
+2021/12/14    I feel SO-SO today.
+2021/12/15    I feel NOT BAD today.
+2021/12/16    I feel JOYFUL today.
+2021/12/17    I feel FINE today.
+2021/12/18    I feel OKAY today.
+2021/12/19    I feel SATISFIED today.
+2021/12/20    I feel SO-SO today.
+2021/12/21    I feel NOT BAD today.
+2021/12/22    I feel FINE today.
+2021/12/23    I feel SATISFIED today.
+2021/12/24    I feel TIRED today.
+2021/12/25    I feel OKAY today.
+2021/12/26    I feel STRESSED today.
+2021/12/27    I feel OKAY today.
+2021/12/28    I feel STRESSED today.
+2021/12/29    I feel NOT BAD today.
+2021/12/30    I feel SATISFIED today.
+2021/12/31    I feel OKAY today.

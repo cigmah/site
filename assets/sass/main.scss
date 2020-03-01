@@ -11,6 +11,9 @@ $code-background: #EDF2F7;
 $black: black;
 $aorta-blue: #4299E1;
 
+// Measures
+$nav-toggle-height: 2.5rem; // mobile only
+
 
 // ----------------------------------------------------------------------------
 // BASE STYLES
@@ -44,6 +47,10 @@ header {
     max-width: $container-width;
     margin: auto;
     z-index: 50;
+}
+
+footer {
+    padding: 2rem;
 }
 
 a {
@@ -85,6 +92,8 @@ ol {
 
 pre, code {
     font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    font-size: 0.9em;
+    line-height: 1;
 }
 
 
@@ -92,10 +101,11 @@ pre, code {
 // NAV MENU
 // ----------------------------------------------------------------------------
 
+
 #nav-menu-toggle {
     display: none;
     @media only screen and (max-width: $mobile) {
-        height: 2.5rem;
+        height: $nav-toggle-height;
         border-bottom: 1px solid black;
         padding: 0.5rem 1rem;
         display: flex;
@@ -103,6 +113,12 @@ pre, code {
         align-items: center;
         line-height: 1;
         cursor: pointer;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: $white;
+        z-index: 100;
         #menu-text {
             font-weight: bold;
         }
@@ -128,9 +144,11 @@ pre, code {
     margin: 2rem;
     @media only screen and (max-width: $mobile) {
         display: block;
-        position: relative;
+        position: fixed;
+        top: $nav-toggle-height;
+        left: 0;
         height: auto;
-        width: auto;
+        width: 100%;
         margin: 0;
         z-index: 60;
     }
@@ -283,7 +301,8 @@ pre, code {
         position: absolute;
         top: 0;
         left: 0;
-        padding-top: 2.5rem;
+        padding-top: $nav-toggle-height;
+        box-sizing: border-box;
         height: 100vh;
         max-width: none;
         display: block;
@@ -372,6 +391,7 @@ pre, code {
     cursor: pointer;
     display: block;
     text-align: center;
+    text-decoration: none;
     @media only screen and (max-width: $mobile) {
         font-size: 1.4rem;
         letter-spacing: -0.5px;
@@ -391,9 +411,9 @@ pre, code {
 .normal-page {
     max-width: $container-width;
     margin: auto;
-    display: flex;
     padding: 1rem 2rem 2rem 2rem;
     @media only screen and (max-width: $mobile) {
+        margin-top: $nav-toggle-height;
         display: block;
         padding: 1rem;
     }
@@ -426,9 +446,11 @@ pre, code {
 }
 
 #side-navigation {
-    width: 400px;
+    width: 280px;
     margin-right: 1rem;
+    float: left;
     @media only screen and (max-width: $mobile) {
+        float: none;
         width: 100%;
         margin: 0;
         margin-bottom: 1rem;
@@ -447,11 +469,20 @@ pre, code {
     }
 }
 
+.side-navigation-parent {
+    &:before {
+        content: "◁";
+        margin-right: 0.25rem;
+    }
+    color: $grey;
+}
+
 .side-navigation-section {
     &:before {
         content: "§";
         margin-right: 0.25rem;
     }
+    margin: 0.75rem 0;
     &.active {
         font-weight: bold;
         a {
@@ -471,8 +502,10 @@ pre, code {
 }
 
 #container {
-    width: 100%;
-    flex-grow: 1;
+    margin-left: 300px;
+    @media only screen and (max-width: $mobile) {
+        margin-left: 0;
+    }
 }
 
 #content-header {
@@ -554,10 +587,40 @@ pre, code {
         display: block;
         margin: auto;
         max-width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid $grey;
+        margin: 2rem 0;
+    }
+    details {
+        border: 1px dotted $grey;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    summary {
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    table {
+        width: 100%;
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
+        margin: 2rem 0;
+    }
+    th {
+        text-align: left;
+        border-bottom: 1px solid $black;
     }
     blockquote {
+        margin: 0 1rem;
+        border-left: 2px solid $grey;
+        padding: 0 1rem;
         @media only screen and (max-width: $mobile) {
-            margin: 0 1rem;
+            margin: 0;
         }
     }
     pre {

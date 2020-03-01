@@ -1,0 +1,265 @@
+#+TITLE: Contraindicated
+#+AUTHOR: CIGMAH Team
+#+DATE: <2019-08-03 Sat>
+#+PROPERTY: header-args :session contraindicated :eval no-export :exports both
+#+OPTIONS: toc:nil
+
+* Problem
+
+[[https://www1.health.gov.au/internet/main/publishing.nsf/Content/chronic-cardio]["Cardiovascular disease is the leading cause of death and disease burden in
+Australia"]]. One of the risk factors for cardiovascular disease is high blood
+pressure (hypertension), which can be managed through non-pharmacological or
+pharmacological approaches.
+
+The Heart Foundation publishes a set of clinical guidelines relating to the
+management of various cardiovascular conditions, including a [[https://www.heartfoundation.org.au/images/uploads/publications/PRO-167_Hypertension-guideline-2016_WEB.pdf][management
+guideline for hypertension in adults]]. This guideline outlines the important
+clinical information for health professionals managing patients with high blood
+pressure.
+
+On Page 38 (Table 6.3), a number of compelling contraindications for four
+classes of anti-hypertensive medications are listed. Here is an abridged version
+of the table with /selected/ "compelling" contraindications.
+
+| Drug Class                                | Selected Compelling Contraindications |
+|-------------------------------------------+---------------------------------------|
+| ACE inhibitors or ARBs                    | Renal artery stenosis                 |
+| Dihydropyridine calciucm channel blockers | N/A                                   |
+| Diuretics                                 | Gout                                  |
+| Beta blockers (not first-line)            | Asthma, Bradycardia or A-V block      |
+
+As an audit of prescribing practices for hypertension, your clinical
+supervisor has collated abridged and deidentified clinical records of 9999
+patients. Here is the first record.
+
+#+begin_src text
+Patient ID: 0001
+Antihypertensive: Carvedilol
+PMHx:
+  - Hyperthyroidism
+  - Migraine
+  - Recurrent UTIs
+#+end_src
+
+Each is in the same format, and each patient in this collection has only been
+prescribed one-antihypertensive. The PMHx list for each patient varies in size;
+some may be blank (though the word =PMHx:= will always appear). Any condition in
+the PMHx appears exactly as listed in the above table (e.g. exactly as 'A-V
+block'), plus some other non-contraindicated conditions.
+
+*Your task* is:
+
+1. Given a list of 9999 patients, determine the *ONE* patient who has been
+   prescribed an anti-hypertensive which is in contention with their PMHx; i.e,
+   determine the ID of the patient who has a compelling contraindication to the
+   antihypertensive they have been prescribed.
+
+You need only consider the selected compelling contraindications in the table we
+have provided above.
+
+#+HTML: <details><summary>Click to show the medications appearing in this dataset</summary>
+| Drug Class               | Medications                                                 |
+|--------------------------+-------------------------------------------------------------|
+| ACE inhibitors/ ARBs     | Captopril, Ramipril, Perindopril, Trandolapril, Candesartan |
+| Beta blockers            | Atenolol, Carvedilol, Metoprolol, Propranolol               |
+| Calcium channel blockers | Amlodipine, Nifedipine                                      |
+| Diuretics                | Hydrochlorothiazide, Indapamide                             |
+#+HTML: </details>
+
+[[../input-contraindicated.txt][Click here to download your text input. (1,803KB, .txt)]]
+
+* Solution
+
+#+HTML: <details><summary>Click here to show the answer.</summary>
+The ID of the single patient whose past medical history is in contention with
+the contraindications of their antihypertensive is *Patient ID 8047*.
+#+HTML: </details>
+
+#+HTML: <details><summary>Click here to show the solution.</summary>
+
+#+begin_quote
+We haven't explained this step-by-step in full yet, but here's the solution as
+it stands at the moment. A more detailed explanation will appear shortly.
+#+end_quote
+
+#+begin_src python :results output
+# Open and read the file input
+with open('./input-contraindicated.txt') as infile:
+    RAW = infile.read()
+
+# Split each patient's record
+SEPARATOR = '-' * 80
+SPLIT = [record.strip() for record in RAW.split(SEPARATOR)]
+
+# Extract the data from each patient's record
+import re
+MATCH_RE = r'Patient ID: (\d+)\nAntihypertensive: (\w+)\nPMHx:(.*)'
+MATCHER = re.compile(MATCH_RE, re.DOTALL)
+SUBDIVIDED = [MATCHER.match(record) for record in SPLIT]
+
+# Split and process each if required (split each history item)
+PATIENT_IDS = [match[1] for match in SUBDIVIDED]
+ANTI_HYPERTENSIVES = [match[2] for match in SUBDIVIDED]
+HISTORIES = [set(re.findall(r'- ([A-Za-z\- ]+)', match[3])) for match in SUBDIVIDED]
+
+# Rejoin the processed data
+DATA = list(zip(PATIENT_IDS, ANTI_HYPERTENSIVES, HISTORIES))
+
+from typing import Dict, Set
+from enum import Enum
+
+# Define a drug cclass enumeration for convenience
+class DrugClass(Enum):
+    A = 0
+    B = 1
+    C = 2
+    D = 3
+
+# Raw drugs by class
+DRUG_AS = ' Captopril, Ramipril, Perindopril, Trandolapril, Candesartan '
+DRUG_BS = ' Atenolol, Carvedilol, Metoprolol, Propranolol               '
+DRUG_CS = ' Amlodipine, Nifedipine                                      '
+DRUG_DS = ' Hydrochlorothiazide, Indapamide                             '
+
+# Define a function to convert raw into dictionary to class
+def extract(raw: str, drug_class: DrugClass) -> Dict[DrugClass, Set[str]]:
+    """ Extract drugs into a dictionary mapping all to class.
+    """
+    drug_list = [drug.strip() for drug in raw.split(',')]
+    return {drug: drug_class for drug in drug_list}
+
+# Extract each and merge the dictionaries
+DRUG_TO_CLASS = {
+    **extract(DRUG_AS, DrugClass.A),
+    **extract(DRUG_BS, DrugClass.B),
+    **extract(DRUG_CS, DrugClass.C),
+    **extract(DRUG_DS, DrugClass.D),
+}
+
+# Define dictionary mapping drug class to contraindications
+CONTRAINDICATIONS = {
+    DrugClass.A: set(['Renal artery stenosis']),
+    DrugClass.B: set(['Asthma', 'Bradycardia', 'A-V block']),
+    DrugClass.C: set(),
+    DrugClass.D: set('Gout')
+}
+
+# Filter the list by set intersection between PMHx and contraindications
+CONTENTION = [
+    (patient, antihypertensive, pmhx)
+    for patient, antihypertensive, pmhx in DATA
+    if pmhx.intersection(CONTRAINDICATIONS[DRUG_TO_CLASS[antihypertensive]])
+]
+
+print(CONTENTION)
+#+end_src
+
+#+RESULTS:
+: [('8047', 'Propranolol', {'Psoriasis', 'Asthma'})]
+
+#+HTML: </details>
+
+#+HTML: <details><summary>Click here to show another solution (in J).</summary>
+#+begin_src j
+Data =: fread < 'input-contraindicated.txt'
+Records =: (80#'-') splitstring Data
+
+Patients =: (CR taketo 'Patient ID: ' takeafter ]) each Records
+Antihs =: (CR taketo 'Antihypertensive: ' takeafter ]) each Records
+Histories =: (1}.CR taketo each '  - ' splitstring 'PMHx:' takeafter ]) each Records
+
+DrugAs =: dltb each ',' splitstring 'Captopril, Ramipril, Perindopril, Trandolapril, Candesartan '
+DrugBs =: dltb each ',' splitstring 'Atenolol, Carvedilol, Metoprolol, Propranolol               '
+DrugCs =: dltb each ',' splitstring 'Amlodipine, Nifedipine                                      '
+DrugDs =: dltb each ',' splitstring 'Hydrochlorothiazide, Indapamide                             '
+Drugs =: DrugAs;DrugBs;DrugCs;<DrugDs
+
+ContraAs =: <'Renal artery stenosis'
+ContraBs =: 'Asthma';'Bradycardia';'A-V block'
+ContraCs =: <0$0
+ContraDs =: <'Gout'
+Contras =: ContraAs;ContraBs;ContraCs;<ContraDs
+
+PatientContras =: ([:>Contras {~ 1 i.~ [:; Drugs e.~ each <&<) each Antihs
+Soln =: Patients {~ 1 i.~ ;PatientContras (+/@:e.) each Histories
+#+end_src
+#+HTML: </details>
+
+** Data Generation
+
+#+HTML: <details><summary>Click here to show the data generation code.</summary>
+#+begin_quote
+This data was generated with the [[https://www.jsoftware.com/#/][J programming language]]. J is a descendent of
+the [[https://en.wikipedia.org/wiki/APL_(programming_language)][APL programming language family]], infamous for being terse and apparently
+unreadable. APL and J make very heavy use of symbols to expose useful primitive
+operations on arrays - similar in many ways to Matlab or Python's Numpy. Though
+the symbolism may look like obfuscation, it's not intentional. One of the core
+ideas of the APL family is about operating on collections of data as a whole
+rather than using conditional or looping structures, and the notation is simply
+a way to express these operations compactly.
+
+If you are interested in the APL/J/K family of languages, then we are always
+very happy to have a chat to explain more about them. K (similar to J) is
+apparently used quite heavily in the financial industry - so even though the
+languages may appear unreadable, they /are/ used in real-life.
+#+end_quote
+
+First, we initiate an array containing boxed items representing the drug names.
+
+#+begin_src j
+DrugAs =: 'Captopril';'Ramipril';'Perindopril';'Trandolapril';'Candesartan'
+DrugBs =: 'Atenolol';'Carvedilol';'Metoprolol';'Propranolol'
+DrugCs =: 'Amlodipine';'Nifedipine'
+DrugDs =: 'Hydrochlorothiazide';'Indapamide'
+DrugsAll =: DrugAs;DrugBs;DrugCs;<DrugDs
+#+end_src
+
+We then initiate an array containing the corresponding contraindications to each
+drug class, and a general array containing a mixture of other non-listed conditions.
+
+#+begin_src j
+CIAs =: <'Renal artery stenosis'
+CIBs =: 'Asthma';'Bradycardia';'A-V block'
+CIDs =: <'Gout'
+Conds =: 'GORD';'Osteoarthritis';'Osteoporosis';'SLE';'Migraine';'HLD';'Generalised anxiety disorder';'Parkinson''s disease';'Depression';'Obesity';'Rheumatoid arthritis';'Recurrent UTIs';'Hyperthyroidism';'Allergic rhinitis';'Psoriasis'
+CondsAll =: CIAs;CIBs;(0$0);CIDs;<Conds
+#+end_src
+
+Next, we define some pure functions that will select and randomly choose from
+these lists.
+
+#+begin_src j
+iselect =: [: >@(] {~ ?@#) ] >@:{ [                           NB. random select from x at index y
+censor  =: dyad :';(<0$0) (y}) x'                             NB. remove from x at index y
+choose  =: ]{~?@([:<.3%~#)?#                                  NB. randomly choose item
+makesafe =: <@(DrugsAll&iselect) ; <@choose@(CondsAll&censor)
+makeunsafe =: <@(DrugsAll&iselect);([:<@((#?#){])((?@#{])CIBs),choose@(CondsAll&censor))
+#+end_src
+
+We then create the list of patients - 9998 patients without a contraindication
+to their corresponding antihypertensive, and one with a contraindication.
+
+#+begin_src j
+Safe =: makesafe each ? 9998 # 4
+Unsafe =: < makeunsafe 1
+All =: ((#?#){]) Safe , Unsafe
+#+end_src
+
+We then define how each patient's generated data should be formatted by defining
+some pure formatting functions.
+
+#+begin_src j
+fmtfirst =: LF,~'Antihypertensive: ',>@>@(0&{)                NB. format antihypertensive
+fmtsecond =: ('PMHx:',LF),[:;[:('  - ',LF,~])&.>>@(1&{)       NB. format medication list
+pad =: [:;=&' '{each,&'0'each
+fmtid =: LF,~'Patient ID: ',pad@(4&":)
+fmt =: fmtid@[,fmtfirst@],fmtsecond@]
+#+end_src
+
+Finally, we format the data we've generated and write it to a file.
+
+#+begin_src j
+Data =: ;(<LF,LF,~LF,~80#'-'),each((1+i.@#) fmt each ]) All
+Data fwrite 'input-contraindicated.txt'
+#+end_src
+#+HTML: </details>
