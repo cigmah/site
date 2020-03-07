@@ -16,45 +16,45 @@ It's 12:40am. Facing North, you head through the corridor on the 5th wall.
 You pick up the book on the table. The cover says *Lupus Diagnoses Skyrocket: Pathology Labs in Question*. You open it up and read the first page.
 
 > **LUPUS DIAGNOSES SKYROCKET: PATHOLOGY LABS IN QUESTION**
-
+>
 > A new diagnosis is sweeping through Autoville: Lupus. Lupus is an autoimmune
 > disease - a disease where some of the body's own immune cells attack other
 > cells. Some of the symptoms of lupus include a facial rash, joint pain and
 > fatigue.
-
+>
 > While the prevalence of lupus in Autoville was only 20 in 100,000 three years
 > ago, a recent study by the Autoville Autoimmune Disease Association has shown
 > a staggering increase in the number of lupus diagnoses to 100 in 100,000 this
 > year - an increase of five times.
-
+>
 > The Autoville Autoimmune Disease Association has stated that they have begun
 > an investigation into the matter.
-
+>
 > "We don't believe this reflects an actual increase in the number of people
 > with lupus. What we believe has occurred, according to preliminary evidence,
 > is an error at one of the pathology labs when detecting one of the markers
 > for lupus in the blood, and unfortunately this has continued without being
 > discovered sooner."
-
+>
 > "No one diagnoses lupus based on the results of one, or even multiple, blood
 > tests. But it *is* possible the patients who make up this sudden increase had a
 > similar disease process which, when combined with the results of the blood
 > test, led clinicians to make a diagnosis when it would not have ordinarily
 > been made."
-
+>
 > "Whether or not these constitute misdiagnoses is not clear at this point. If
 > that is indeed the case, then we can assure patients and their families that
 > we will be providing support and information services for all those affected."
-
+>
 > A spokesperson from H&E Pathology, one of Autoville's many pathology
 > providers, says that H&E Pathology will assist with the investigation.
-
+>
 > "We take the accuracy of our tests very seriously. Pathology underlies so much
 > of the healthcare system that we can't afford to make these sorts of mistakes.
 > H&E Pathology will be cooperating with the Autoville Autoimmune Disease
 > Association to get to the bottom of this issue, and we hope other pathology
 > providers will follow suit."
-
+>
 > The investigation is expected to be completed within the next month.
 
 It sounds like a news transcript. Misdiagnoses...that doesn't sound good.
@@ -62,7 +62,7 @@ It sounds like a news transcript. Misdiagnoses...that doesn't sound good.
 You read the next page.
 
 > Dear Mr Arthur,
-
+>
 > We have identified the pathology branch with the malfunctioning test. We can
 > confirm the malfunction only affects one of the auto-antibody tests the lab
 > provides. We are currently doing a final check and will contact you as soon as
@@ -104,6 +104,8 @@ Written by the CIGMAH Puzzle Hunt team.
 <br>
 
 To generate the input data, we used some information from the [Wikipedia Autoantibody page](https://en.wikipedia.org/wiki/Autoantibody) licensed under Creative Commons.
+
+---
 
 ## Answer
 

@@ -2,12 +2,11 @@
 title = "Night 1: Text Processing"
 description = "Using Python to do basic text processing."
 date = "2019-08-06"
-draft = true
 +++
 
 # When was this tutorial night held? 
 
-This tutorial night was held on 6th August 2019 at Clayton campus.
+This tutorial night was held at 6pm on 6th August 2019 at Clayton campus.
 
 # What material was covered? 
 

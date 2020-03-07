@@ -3,6 +3,8 @@
 $mobile: 760px;
 $large: 1440px;
 $container-width: 1280px;
+$container-width-small: 900px;
+$sidenav-width: 240px;
 
 // Colours
 $white: white;
@@ -32,10 +34,14 @@ button {
 }
 
 html {
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: "Inter", "Helvetica", "Arial", sans-serif;
     margin: 0;
     padding: 0;
     background: $white;
+    font-size: 16px;
+    @media only screen and (min-width: $large) {
+        font-size: 18px;
+    }
 }
 body {
     margin: 0;
@@ -50,7 +56,19 @@ header {
 }
 
 footer {
-    padding: 2rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    max-width: $container-width - 20px;
+    margin: auto;
+    z-index: 50;
+    text-align: right;
+    border-top: 1px dotted $grey;
+    @media print {
+        display: none;
+    }
+    @media only screen and (max-width: $mobile) {
+        padding: 1rem;
+    }
 }
 
 a {
@@ -92,7 +110,7 @@ ol {
 
 pre, code {
     font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     line-height: 1;
 }
 
@@ -142,6 +160,10 @@ pre, code {
 #nav-bar {
     height: 3rem;
     margin: 2rem;
+    margin-bottom: 1rem;
+    @media print {
+        display: none;
+    }
     @media only screen and (max-width: $mobile) {
         display: block;
         position: fixed;
@@ -158,6 +180,9 @@ pre, code {
     display: flex;
     align-items: center;
     padding: 0;
+    @media print {
+        display: none;
+    }
     @media only screen and (max-width: $mobile) {
         background: $white;
         width: 100%;
@@ -278,11 +303,16 @@ pre, code {
     }
 }
 
-#hero-mobile-image {
+#hero-mobile-image-container {
     display: none;
     @media only screen and (max-width: $mobile) {
-        display: block;
-        margin: 2rem 0 2rem 0;
+        margin: 0.5rem 0 0.5rem 0;
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    #hero-mobile-image {
         width: 100%;
     }
 }
@@ -325,7 +355,7 @@ pre, code {
         height: 100%;
         display: flex;
         flex-direction: column;
-        align-items: space-between;
+        justify-content: space-between;
     }
 }
 
@@ -347,9 +377,6 @@ pre, code {
         font-size: 4rem;
         letter-spacing: -5px;
     }
-    @media only screen and (min-width: $large) {
-        font-size: 7rem;
-    }
 }
 
 #landing-subtitle {
@@ -363,22 +390,16 @@ pre, code {
         letter-spacing: -1px;
         margin: 0.5rem 0;
     }
-    @media only screen and (min-width: $large) {
-        font-size: 4rem;
-    }
 }
 
 #landing-paragraph {
-    font-size: 1.5rem;
+    font-size: 2rem;
     letter-spacing: -1px;
     margin-bottom: 3rem;
     @media only screen and (max-width: $mobile) {
         font-size: 1.2rem;
         letter-spacing: -0.5px;
         margin: 1rem 0;
-    }
-    @media only screen and (min-width: $large) {
-        font-size: 2.5rem;
     }
 }
 
@@ -395,7 +416,7 @@ pre, code {
     @media only screen and (max-width: $mobile) {
         font-size: 1.4rem;
         letter-spacing: -0.5px;
-        margin: 2rem 0;
+        margin: 2rem 0 0.5rem 0;
     }
     &:hover {
         background: $black;
@@ -446,14 +467,21 @@ pre, code {
 }
 
 #side-navigation {
-    width: 280px;
+    width: $sidenav-width;
     margin-right: 1rem;
     float: left;
+    text-align: right;
+    padding-bottom: 2rem;
+    font-size: 0.9rem;
+    @media print {
+        display: none;
+    }
     @media only screen and (max-width: $mobile) {
+        text-align: left;
         float: none;
         width: 100%;
         margin: 0;
-        margin-bottom: 1rem;
+        font-size: 1rem;
     }
 }
 
@@ -502,9 +530,17 @@ pre, code {
 }
 
 #container {
-    margin-left: 300px;
+    margin-left: $sidenav-width + 20px;
+    padding-left: 3rem;
+    min-height: 72vh;
+    @media print {
+        margin-left: 0;
+        padding-left: 0;
+    }
     @media only screen and (max-width: $mobile) {
         margin-left: 0;
+        padding-left: 0;
+        padding: 0.1rem;
     }
 }
 
@@ -515,22 +551,20 @@ pre, code {
 #content-title {
     font-size: 3rem;
     font-weight: bold;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     margin: 0;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     @media only screen and (max-width: $mobile) {
         font-size: 2.5rem;
-        letter-spacing: -2.5px;
     }
 }
 
 #subtitle {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: normal;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     @media only screen and (max-width: $mobile) {
         font-size: 1.5rem;
-        letter-spacing: -1.5px;
     }
 }
 
@@ -561,26 +595,33 @@ pre, code {
 
 #content-body {
     line-height: 1.5;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     h1 {
-        margin: 2rem 0 0.25rem 0;
+        margin: 2.5rem 0 0.5rem 0;
         font-size: 1.5rem;
-        letter-spacing: -1.5px;
-    }
-    h2 {
-        margin: 1.5rem 0 0.25rem 0;
-        font-size: 1.5rem;
-        font-weight: normal;
-        letter-spacing: -1px;
-    }
-    h3 {
-        margin: 1.25rem 0 0.25rem 0;
-        font-size: 1.25rem;
-        font-weight: normal;
         letter-spacing: -0.5px;
     }
+    h2 {
+        margin: 2rem 0 0.25rem 0;
+        font-size: 1.25rem;
+        letter-spacing: -0.25px;
+    }
+    h3 {
+        margin: 1.5rem 0 0.25rem 0;
+        font-size: 1.1rem;
+    }
+    h4 {
+        margin: 1.25rem 0 0.25rem 0;
+        font-size: 1.0rem;
+        font-weight: bold;
+    }
+    h5 {
+        margin: 1rem 0 0.25rem 0;
+        font-size: 1.1rem;
+        font-weight: normal;
+    }
     p {
-        margin: 0 0 1rem 0;
+        margin: 0 0 1.25rem 0;
     }
 
     img, figure, video {
@@ -593,7 +634,7 @@ pre, code {
     hr {
         border: none;
         border-top: 1px solid $grey;
-        margin: 2rem 0;
+        margin: 3rem 0;
     }
     details {
         border: 1px dotted $grey;

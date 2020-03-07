@@ -1,3 +1,4 @@
+{{ $current := .CurrentSection }}
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
@@ -26,9 +27,11 @@
             {{- block "main" . }}{{- end }}
         </main>
 
+        {{ if (not (eq $current .Site.Home)) }}
         <footer>
             {{- partial "footer.html" . -}}
         </footer>
+        {{ end }}
 
     </body>
 </html>

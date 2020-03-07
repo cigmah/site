@@ -1,6 +1,7 @@
 +++
 title = "Blog"
 weight = 5
+description = "Small articles in reverse chronological order."
 +++
 
 # What does CIGMAH blog about?
