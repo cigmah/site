@@ -16,72 +16,72 @@ You pick up the book on the table. It says *Crab Canon - Out of Sync*. What's a 
 You start reading it.
 
 > ## Crab Canon - Out of Sync
-
+>
 > ACHILLES: Ah! Well! Of course! I found it!
-
+>
 > TORTOISE: What an unusual thing.
-
+>
 > ACHILLES: A PUMP! A Primitive Universal Miniature PUMP, of course.
-
+>
 > TORTOISE: But what does "PUMP" mean?
-
+>
 > ACHILLES: But I just told you. It's recursive.
-
+>
 > TORTOISE: Mm...I'm still not quite sure I understand that acronym.
-
+>
 > ACHILLES: Never mind that, I've already told you. At any rate, I've got its genome, and I'm on a mission. I'm going to use the PUMP Interactive Gene Live Editing Terminal (PIGLET) to find two very special codons.
-
+>
 > TORTOISE: And what might those be?
-
+>
 > ACHILLES: "Havoc". "Order". I don't know, but I suppose it'd be like that.
-
+>
 > TORTOISE: Well of course. But why?
-
+>
 > ACHILLES: I've made a mess of it already. But if I can find those two codons, I can reset the system.
-
+>
 > TORTOISE. And you'll just try messing around with PIGLET to figure it out?
-
+>
 > ACHILLES: No, no, no. There's a system to the madness.
-
+>
 > TORTOISE: The codons? Because I personally think they're bizarre.
-
+>
 > ACHILLES: I disagree strongly. You know why, right?
-
+>
 > TORTOISE: ...the codons? Because I personally think they're bizarre?
-
+>
 > ACHILLES: No, no, no! There's a system to the madness.
-
+>
 > TORTOISE. And you'll just try messing around with PIGLET to figure it out.
-
+>
 > ACHILLES: I've made a mess of it already. But if I can find those two codons, I can reset the system.
-
+>
 > TORTOISE: Well of course. But why?
-
+>
 > ACHILLES: Havoc, order, I don't know. But I suppose it'd be like that.
-
+>
 > TORTOISE: And what might those be?
-
+>
 > ACHILLES: Never mind that! I've already told you at any rate - I've got its genome, and I'm on a mission. I'm going to use the PUMP Interactive Gene Live Editing Terminal (PIGLET) to find two very special codons!
-
+>
 > TORTOISE: Mm...I'm still not quite sure I understand that acronym.
-
+>
 > ACHILLES: But I just told you. It's recursive.
-
+>
 > TORTOISE: But what does "PUMP" mean?
-
+>
 > ACHILLES: A PUMP! A Primitive Universal Miniature PUMP, of course.
-
+>
 > TORTOISE: What an unusual thing.
-
+>
 > ACHILLES: Ah, well of course! I found it!
-
+>
 > *Crab Canon - Out of Sync*
 
 What a strange piece of text. It barely makes any sense. Well, you suppose this is what the UMAT (or whatever they call it nowadays) was trying to get out of future doctors - being able to make sense out of a big mess of facts. Or something like that.
 
 You open the computer and, much to your surprise, it opens directly into an interactive graphical interface - PIGLET. Ah! And it comes with it's own set of instructions. Perfect. Maybe the whole Crab Canon thing wasn't really relevant...
 
-## Input
+# Input
 
 [Edit the PUMP on the PUMP Interactive Gene Live Editing Terminal (PIGLET)](https://cgmnt-achilles-tortoise-piglet.netlify.com/).
 
@@ -89,23 +89,25 @@ Your goal is to find the **Havoc** codon (which **cannot** be present in an orde
 
 ![Image](https://lh3.googleusercontent.com/mLRC3L9VcFtwS27f6FHk_wBt6vR9uQxRpa4oDTC6mE7tMXJk4sqslERZvFWLgjGdR0w5wlpU2NVSQ-tyN1RwQfcrj_7Cc-Qp0XxMgE7b2UTd-VdNz8SkKd-vTXGCpUQHEG4V2jimMQ=w800)
 
-## Statement
+# Statement
 
 State the "Havoc", then the "Order" codon. (e.g. `ABC DEF`)
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team with reference to *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter.
 
 We also thank [brendanzab](https://github.com/brendanzab) for his useful advice on optimising our WebGL animation.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `PMP MPM`.
 
-## Explanation
-#### Explanation of Model
+# Explanation
+### Explanation of Model
 
 The model consists primarily of cells wrapped on a sphere.
 

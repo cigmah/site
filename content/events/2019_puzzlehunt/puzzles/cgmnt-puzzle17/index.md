@@ -32,30 +32,32 @@ There are 8 levels (and therefore 8 scenarios). After you have completed the 8th
 
 You sigh and click Start.
 
-## Input
+# Input
 
 [Play the puzzle at https://http://what-will-the-dipstick-look-like.netlify.com.](http://what-will-the-dipstick-look-like.netlify.com/)
 
 This puzzle has been tested on Chrome, Safari and Firefox on a desktop computer. It is not designed for mobile devices.
 
-## Statement
+# Statement
 
 State the digit code shown after successfully completing the 8 scenarios.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
 We referenced a number of resources including [LITFL](https://litfl.com/dipstick-urinalysis/) and [Simerville et al 2005](https://www.aafp.org/afp/2005/0315/p1153.html) when making the scenarios for this puzzle.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `294`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You are glad you remember how to interpret urine dipsticks. Who knows how many investigations those thin strips of paper have prompted over the years; some warrented, some perhaps not.
 
@@ -67,7 +69,7 @@ The L- and D- prefixes corerspond to L- and D- enantiomers.
 
 Enantiomers? What are those? You severely regret your forgetfulness of preclinical biochemistry.
 
-### Writer's Notes
+## Writer's Notes
 
 This puzzle was a fairly straightforward puzzle, relying mostly on medical knowledge and taking the format of single-select and multi-select EMQs in the appearance of a urine dipstick. There is unfortunately going to be some ambiguity going from scenario -> dipstick as opposed to dipstick -> scenario given that there is often considerable variation, but we tried our best to choose scenarios where this was as unambiguous as possible (or at least, there would be one or two very-strongly-associated abnormalities that would overshadow any other possible abnormalities).
 

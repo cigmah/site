@@ -19,72 +19,74 @@ Ah, haematology, your old nemesis. Bite cells...what did they indicate again?
 You take a read.
 
 > The Bite Cell Scouter is being developed by the Hospital of Babel in order to collect morphology images of bite cells on a large scale.
-
+>
 > The Scouter divides high-power microscopy images of blood films into `217x217` squares and identifies bounding boxes of each bite cell for later extraction and cataloguing.
-
+>
 > The images look like the following:
-
-![Image](https://lh3.googleusercontent.com/AQF-tP1H7rVtT6jPL5MyejPgxxJmWi6tG7eXuM8JeI_fCPpyDxjbewN0jVmzCQnDHPXyd0yrSQsZEfCo7zJfhj026KUnCSYiq_6vW87yPhD-yMITOcUV4SkB9ZyVEFDq60Ytm0CySQ=s231-p-k)
-
+>
+> ![Image](https://lh3.googleusercontent.com/AQF-tP1H7rVtT6jPL5MyejPgxxJmWi6tG7eXuM8JeI_fCPpyDxjbewN0jVmzCQnDHPXyd0yrSQsZEfCo7zJfhj026KUnCSYiq_6vW87yPhD-yMITOcUV4SkB9ZyVEFDq60Ytm0CySQ=s231-p-k)
+>
 > Your task is to implement The Scouter and determine the centre of each bounding box of each bite cell in the test dataset.
-
+>
 > You are provided with two folders containing 400 images each. Each image looks like this: note that the background for every image has an alpha value of 0, or is pure white if converted to RGB; you may find this useful for segmentation purposes. The only cells present in each image are normal RBCs or bite cells.
-
+>
 > The first directory, `input10_training/` contains 400 images of blood films under high power, cropped to a `217x217` pixels and saved as `.png` files of the form `training_XXX.png` for some three-digit ID `XXX` (e.g. `training_001.png`). This directory also contains a comma-separated-value file called `labels.csv` that contains data on bounding boxes of every cell the following format (note there is no header row):
-
+>
 > ```csv
 > training_001.png,BITE,2,155,21,173
 > training_001.png,NORMAL,66,112,86,134
 > training_001.png,NORMAL,0,194,16,213
 > etc.
 > ```
-
+>
 > Each value corresponds to, in this exact order:
-
+>
 > 1. The filename of the image file
 > 2. The classification of a bounding box (either `NORMAL` or `BITE`)
 > 3. The **left** coordinate of the bounding box
 > 4. The **upper** coordinate of the bounding box
 > 5. The **right** coordinate of the bounding box
 > 6. The **bottom** coordinate of the bounding box.
-
+>
 > Please note, and *this is absolutely vital*, that the coordinates of the bounding box **are relative to the upper left corner of the image**. This is why the `bottom` coordinate of the bounding box has a greater value than the `upper` coordinate of the bounding box (the upper-left corner has a y-axis value of 0, and the bottom-left corner has a y-axis value of 217). The x-axis remains as usual (i.e. the upper-left corner has a x-axis value of 0, and the upper-right corner has an x-axis value of 217). If you have any doubt, first extract the bounding box of a test image and ensure this corresponds to a red blood cell.
-
+>
 > The second directory, `input10_test/` contains 400 images of blood films similar to the images in the training dataset.
-
+>
 > Identify the bounding boxes of every bite cell in the test dataset, then find the centre of each bounding box. If you plot the centre of every bounding box for every image (with **the origin defined as upper-left, as per the images**), a numerical code will be revealed.
-
+>
 > For example, for the image above, the centers of the bite cells *only* would look like this:
-
-![Image](https://lh3.googleusercontent.com/NiSh-25wHyiRzJCqhr9J1SB3gccdBEMiJdlhYQ0PAPh9tHjz0_XEj4YzLd8ISisJtSvzxBl4f8krFddk6t8FclOEDWJwG28trBpO8NbZ27GSdrAfGfKsnCRLgBhZu_6cbXfIvJL2AA=w800)
-
+>
+> ![Image](https://lh3.googleusercontent.com/NiSh-25wHyiRzJCqhr9J1SB3gccdBEMiJdlhYQ0PAPh9tHjz0_XEj4YzLd8ISisJtSvzxBl4f8krFddk6t8FclOEDWJwG28trBpO8NbZ27GSdrAfGfKsnCRLgBhZu_6cbXfIvJL2AA=w800)
+>
 > This doesn't resemble digits at the moment, but once you collect and classify enough images, you the plotted centers should accumulate to form digits.
 
 <br>
 
-## Input
+# Input
 
 [cgmnt_input10/](https://drive.google.com/drive/folders/1b_4xC1liMmWA7xAXtmM3UgoDXX-lWVQ0?usp=sharing), containing
 
 1. `input10_training/` (400 training ID-labelled 217x217 pixel PNG images and 1 bounding box data file (`labels.csv`), 5.7MB total),
 2. `input10_test/` (400 test ID-labelled 217x217 pixel PNG images,  5.9MB total).
 
-## Statement
+# Statement
 
 State the numerical code revealed by plotting the bounding box centre of every bite cell in the test dataset.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt team. We also generated the images; no external images were used in the process. The image generation process is detailed in the Writer's Notes after the puzzle is solved.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `412`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You feel satisfied for having been able to detect and localise bite cells automatically, though you wonder what research the Hospital of Babel would do with lots of pictures of bite cells...
 
@@ -98,20 +100,20 @@ Key from "La Biblioteca de Babel":
 
 Puzzling indeed.
 
-### Writer's Notes
+## Writer's Notes
 
-#### Objectives
+### Objectives
 
 1. Introduce applications of computer vision (object detection) and machine learning in medical image interpretation.
 2. Provide sample, sanitised training and test data for object detection, of reasonable similarity to medical images.
 
-#### Context
+### Context
 
 Object detection is a useful task in many medical contexts; pathology and radiology images in particular house a huge number of components in each image, and being able to automatically detect certain components is an important element to interpretation.
 
 We chose a small problem that we could feasibly generate data for, settling on a RBC-only "blood film" with the task of identifying a certain morphology. Although our task is relatively easy as far as object detection goes, we hope it introduces some basic principles behind.
 
-#### Example Solution
+### Example Solution
 
 > Note: Our example solutions are just one way of approaching our puzzles. They're not necessarily the best way, or even a good way!
 
@@ -136,7 +138,7 @@ from imageio import imread
 
 
 ```python
-### PREPROCESSING
+## PREPROCESSING
 traindir = "./input10_training/"
 traindata = read_csv("./input10_training/labels.csv", names=["fname", "class", "left", "upper", "right", "bottom"])
 trainfs = list(dict.fromkeys(traindata["fname"])) # For Python > 3.6 only! Needs to be ordered.
@@ -147,7 +149,7 @@ maxy, maxx = map(np.max, (traindata.bottom - traindata.upper, traindata.right - 
 trainpad = [np.pad(im, ((maxy-im.shape[0],0),(maxx-im.shape[1],0)), 'constant') for im in trainbbs]
 trainlabs = [0 if r["class"] == "NORMAL" else 1 for i, r in traindata.iterrows()]
 
-### MODEL
+## MODEL
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(maxy,maxx)),
     keras.layers.Dense(128, activation=tf.nn.relu),
@@ -158,7 +160,7 @@ model = keras.Sequential([
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.fit(np.stack(trainpad, axis=0), np.array(trainlabs), epochs=5)
 
-### TESTING
+## TESTING
 testglob = "./input10_test/*.png"
 testfs = sorted(glob(testglob))
 testims = [binary_fill_holes(rgb_to_hsv(imread(f)[:,:,0:3])[:,:,2]<255) for f in testfs]
@@ -168,7 +170,7 @@ testbbs = [im[b[0]:b[2], b[1]:b[3]] for im, bs in zip(testims, testbbco) for b i
 testpad = [np.pad(im, ((maxy-im.shape[0],0),(maxx-im.shape[1],0)), 'constant') for im in testbbs]
 preds = [np.argmax(p) for p in model.predict(np.stack(testpad, axis=0))]
 
-### BITE CENTRE PLOT
+## BITE CENTRE PLOT
 testbbcoflat = [b for bs in testbbco for b in bs]
 testxs = [b[1]+(b[3]-b[1])//2 for b,c in zip(testbbcoflat,preds) if c]
 testys = [b[2]+(b[2]-b[0])//2 for b,c in zip(testbbcoflat,preds) if c]
@@ -250,7 +252,7 @@ plt.imshow(trainpad[0], cmap="gray")
 ![png](https://lh3.googleusercontent.com/uSn1yP-PkSfg0wDA9muO-XLLs-inTn7zXw5QhbawZgMWJQkD4t-4z1oCjdXwzJ5uXPqHuIgqVoDwhqW78BAbRQlktUWxTwDdJ_3sCjYoOJhW8j0nOuXUZz-NNSc3Ymt0DEmN941SdQ=w800)
 
 
-#### Image Generation
+### Image Generation
 
 We were very time-pressured this month, so our code below is not optimised, nor concise, nor efficient. We hope to clean this up one day, as it mostly consists of array operations. We continuously dream of the day we can fit our code on a business card in APL...
 
@@ -314,7 +316,7 @@ def rand_around(mean, std, clip_low=0, clip_high=1):
     return result
 ```
 
-##### Solution Digits
+#### Solution Digits
 
 
 ```python
@@ -349,7 +351,7 @@ def insolution(p):
     return p in psol
 ```
 
-##### RBC Function
+#### RBC Function
 
 
 ```python
@@ -374,7 +376,7 @@ bodycol= np.array(
     ]
 )
 
-### Avoid collisions and cutoff rbcs
+## Avoid collisions and cutoff rbcs
 xoptions = range(rrbc, imsize, int(imsize / rrbc))
 yoptions = range(rrbc, imsize, int(imsize / rrbc))
 
@@ -471,19 +473,19 @@ def make_rbc(propbite=0.2, checkinsolution=False):
 
         ax.imshow(imcontainer)
         bboxes.append((isbite, minx, imsize-maxy, maxx, imsize-miny))
-###    Plot
-###    ax.scatter([p[0] for p in  bitecoords], [p[1] for p in bitecoords], s = 0.5)
-###     bboxpatches = [patches.Rectangle((b[1], b[2]), (b[3]-b[1]), (b[4]-b[2]),
-###                                      facecolor = "None",
-###                                      edgecolor = ("red" if b[0] else "green"))
-###                    for b in bboxes]
+##    Plot
+##    ax.scatter([p[0] for p in  bitecoords], [p[1] for p in bitecoords], s = 0.5)
+##     bboxpatches = [patches.Rectangle((b[1], b[2]), (b[3]-b[1]), (b[4]-b[2]),
+##                                      facecolor = "None",
+##                                      edgecolor = ("red" if b[0] else "green"))
+##                    for b in bboxes]
 
-###     [ax.add_patch(p) for p in bboxpatches]
+##     [ax.add_patch(p) for p in bboxpatches]
 
     return fig, bboxes
 ```
 
-##### Training Data
+#### Training Data
 
 
 ```python
@@ -492,7 +494,7 @@ bboxfile = "./input10_training/labels.csv"
 
 nimages = 400
 
-###bboxdata = []
+##bboxdata = []
 
 factor = 217/200
 
@@ -524,7 +526,7 @@ with open(bboxfile, "a+") as outfile:
         print(i)
 ```
 
-##### Test Data
+#### Test Data
 
 
 ```python

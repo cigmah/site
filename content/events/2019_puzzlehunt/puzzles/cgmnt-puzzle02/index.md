@@ -32,36 +32,38 @@ states - one normal state, and one which reflects a certain gene mutation known
 to cause disease. And thanks to your preclinical education, you think you know
 what the gene mutation is!
 
-## Input
+# Input
 
 [View the animation](https://cigmah.github.io/cgmnt-metabolic-mayhem/).
 
 GIFs are provided below.
 
-### Normal
+## Normal
 
 ![Normal](https://lh3.googleusercontent.com/owvwMfrtLBkUTjoLla8njLxA0lFtfRuMYbqf6oZJ9M-hKDgEacWZCyzOV9YMY7AuQBcwTct3-a6Nbt1m263s5nPjElSvUdzXVR-nTblFmHcHcMYNIO1AW9MuQgKF1kZsjLkxAt_hLQ=w2400)
 
-### Pathological
+## Pathological
 
 ![Pathological](https://lh3.googleusercontent.com/069TGeuI8enesHX9CrO4RPCo6lOKmOY4tcPsWamV1Zx8acdnlKs7O8mGjbMRskzA6RPf1Sv9fg4AfZQqT225m0D_FWzaW8KcJ7tBCuU3PgrQbjmnACYP7MU4iXjL2SQdPhvxkL6uLQ=w800)
 
-## Statement
+# Statement
 
 State the HUGO Gene Symbol of the gene mutation responsible for the pathology depicted. (e.g. `CFTR`)
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `LDLR`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 Eureka! You give yourself a pat on the back for retaining your knowledge about lipoproteins way back from your first year of medicine.
 
@@ -73,15 +75,15 @@ The map is enciphered.
 
 Well, duh. So much for a hint! You can only hope that the other hints are more helpful...
 
-### Writer's Notes
+## Writer's Notes
 
-#### Context
+### Context
 
 Our medical curriculum started off with metabolism, and we had to learn many of the metabolic pathways throughout the body. We wanted to experiment with using code to generate graphics (partly to show that coding could be a fun hobby!) and thought that illustrating a metabolic pathway with an abstract generated animation would be a neat fit.
 
 We took this out of the regular puzzles and made it into a sample because we thought interpreting it would be too ambiguous for a fair puzzle. We wanted all of our puzzles to have definitive answers and to be deducible using critical thinking (and a bit of creativity). While we tried our best to make the animation represent a certain pathway unambiguously, making it abstract leaves it open to many (possibly equally-valid) interpretations. Rest assured that the remainder of our abstract puzzles have a much more definitive right answer!
 
-#### Planning
+### Planning
 
 We chose **lipoprotein metabolism** as our pathway as it was something we thought was relevant to both preclinical and clinical students. To make the animation specific to this pathway (and not the million other things that circulate through the blood), we wanted to implement:
 
@@ -93,7 +95,7 @@ We wanted to use [Elm](https://elm-lang.org/) to create the animation, like our 
 
 The [source code is on GitHub in our public CIGMAH organisation](https://github.com/cigmah/cgmnt-metabolic-mayhem/tree/canvas), though it's unfortunately very messy since we prototyped it quickly. We hope at some stage to clean it up much more nicely, but we'll describe an overview of how it works below in the Generation section (and hopefully introduce you to The Elm Architecture at the same time!)
 
-#### Explanation
+### Explanation
 
 Here's a labelled diagram of what we intended each item to represent:
 
@@ -103,7 +105,7 @@ When the state is flipped to `Pathological`, the LDL receptors no longer bind to
 
 While we realise this model is heavily oversimplified, we hope it illustrates some very basic concepts (e.g. the "circulation" of lipoproteins, and a superficial difference between the endogenous and exogenous lipoprotein pathways.)
 
-#### Generation
+### Generation
 
 That's it for explaining the content of the animation. If you'd like to know how this animation was generated, read on!
 
@@ -115,7 +117,7 @@ Here's a diagram showing a quick rundown of how the animation works.
 
 We'll go through step by step.
 
-##### Initial State
+#### Initial State
 
 Our animation starts by setting an *initial* `state`. The `state` refers the whole state of everything that goes onto the screen. By defining an initial state, we can calculate the next state using the values of the previous state, and then just keep repeating that calculation over and over again to run our animation.
 
@@ -177,11 +179,11 @@ Out `state` holds:
 9. `lipase` - a list of lipoprotein lipases that are on the screen.
 10. `random` - a variable to store a random number that we can access during the animation.
 
-##### Initial Drawing
+#### Initial Drawing
 
 After setting an initial state, the animation sends a message to the browser to draw the state on to the screen. For the moment, since our initial state is quite bare, we don't have much to draw - we really only have to draw the liver and the inert takers.
 
-##### Updating the State
+#### Updating the State
 
 Once the state is drawn, we are "done" for that frame.
 
@@ -193,19 +195,19 @@ When that instruction is received, we have to calculate what values the next sta
 
 Here's an overview of how the new variables are calculated:
 
-###### Frame
+##### Frame
 
 Frame is easy - we just add one to `frame` of the old state!
 
-###### runState
+##### runState
 
 We don't change this (we have a button in the centre of the screen (the Start/Stop) button which changes the value of this instead). So this is just equal to the `runState` of the previous state.
 
-###### pathologyState
+##### pathologyState
 
 Like `runState`, we don't change this value, and this is just equal to the `pathologyState` of the previousState.
 
-###### cMicronList
+##### cMicronList
 
 This is where the fun starts!
 
@@ -255,11 +257,11 @@ However, if the chylomicron *is* in the circulation circle, then we have to do a
 
 After all this, we have the new state of our chylomicrons!
 
-###### Liver
+##### Liver
 
 We don't have to change anything here. The liver stays in the same position - the animation of the liver is purely done in the rendering step using the `random` value of the state.
 
-###### lProteinList
+##### lProteinList
 
 The manipulations for `lProteinList` are very similar to those we have to do for `cMicronList` (with the exception that lipoproteins always stay within the circle, so we don't have to check it).
 
@@ -268,7 +270,7 @@ The main difference here, however, is that the update of `lProteinList` depends 
 (Though we should note, we do remove a lipoprotein after a certain period of time just to avoid making the list longer and longer indefinitely - it's just that this period of time is significantly longer than that of the `Normal` state).
 
 
-###### lProteinTakerList
+##### lProteinTakerList
 
 The takers have the following shape:
 
@@ -286,19 +288,19 @@ If this list had other elements in it, then we reduce each element's `proportion
 
 The idea is that we can render the taker as a line from the liver origin to (`takeX`, `takeY`) and by gradually reducing its `proportion`, make it appear the line is "taking" the lipoprotein at (`takeX`, `takeY`) into the liver!
 
-###### inertTakerList
+##### inertTakerList
 
 We do a similar thing for `inertTakerList` as `lProteinTakerList`, though we don't have to record `takeX`/`takeY` since the takers are inert (and have a fixed radius). We simply reduce the proportion by a set value. If the age of the taker is greater than a certain threshold, we remove it.
 
 If the current frame modulus a certain number (equal to the longevity of a taker so we can keep the number of takers constant) is 0, then we add a new taker at a random angle (using the `random` value of the state) and set its `proportion` to 1.
 
-###### Lipase
+##### Lipase
 
 These lipoprotein lipases are just moving around the screen in a circle.
 
 All we have to do is add a constant to their value `positionRadians`.
 
-###### Random
+##### Random
 
 This stores a random value that we can use in our animation. Random values in Elm are a little harder to access than say JavaScript of Python because of the nature of the Elm language, which is why we store this every frame than say just calling a random value on demand.
 
@@ -308,7 +310,7 @@ To update this value, we "step" the random value (i.e. get the next "random" val
 
 That's our new state calculated!
 
-##### Draw the State
+#### Draw the State
 
 We then draw the new state on the screen. This is pretty simple - we can translate most of the items in the state into shapes and be done with it, since we have the `x` and `y` positions of most of the "objects" of the animation (or we can calculate it, e.g. from the `positionRadians` of the lipase).
 
@@ -316,6 +318,6 @@ We did try to add a bit of flavour - we generated multiple circles of two differ
 
 We essentially just map the state onto shapes that can be rendered. We originally rendered the animation frame using SVG, but found it was too slow, so we switched to HTML5 Canvas instead which was (slightly) faster.
 
-##### Repeat
+#### Repeat
 
 And now we simply have to repeat the steps above - wait for the browser instruction to draw a new state, calculate the new state, then draw it!

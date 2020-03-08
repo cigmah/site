@@ -102,30 +102,32 @@ After you have completed 6 rounds, you will be shown a codeword to submit as you
 
 You hope you remember your knowledge of antimicrobials and have the patience to plan ahead before you start clicking tiles. It's time to do some *debugging*.
 
-## Input
+# Input
 
 [Play the game at https://cgmnt-sti-symbolic-debugify.netlify.com/](https://cgmnt-sti-symbolic-debugify.netlify.com/).
 
 This game works best on Chrome, Safari or Firefox on a desktop computer.
 
-## Statement
+# Statement
 
 State the codeword shown after successfully completing 6 rounds of the game.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
 We referenced the [Australian STI Management Guidelines](http://www.sti.guidelines.org.au/) when making this puzzle.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `AZOLE`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You feel proud for having been able to match tiles, but you realise your knowledge of bugs and drugs will quiclky become outdated and feel a little helpless.
 
@@ -143,7 +145,7 @@ The exit/antichamber, by the way, is *not* L-E.
 
 You press onwards.
 
-### Writer's Notes
+## Writer's Notes
 
 The source code for this puzzle will be released on the CIGMAH GitHub organisation after the puzzle hunt. A longer writeup will accompany this puzzle on the main CIGMAH website when we get time.
 

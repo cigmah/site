@@ -56,26 +56,28 @@ In this manner of encoding the nucleobase sequence, we can reduce the character 
 
 You have been provided with another nucleobase string with a length divisible by 4. When encoded in the manner describe above, it will spell out a short question with a single-word answer.
 
-## Input
+# Input
 
 [Click here to download your puzzle input (440 bytes, .txt)](https://drive.google.com/file/d/1jjy-Bc_tV3sxMOc9XLXY5Fg8gBYTxkj2/view?usp=sharing)
 
-## Statement
+# Statement
 
 State the answer to the question found by encoding your puzzle input in the manner described above.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `URACIL`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You wonder whether you would find any words in naturally sequenced data using this encoding method.
 
@@ -87,7 +89,7 @@ The exit room is the end labelled L-V.
 
 That might be useful.
 
-### Writer's Notes
+## Writer's Notes
 
 Unfortunately, we didn't get much time to do a full writeup, but perhaps we will return to do it sometime. The "code" theme tie-in for this puzzle was genetic code and unicode. This manner of encoding FASTA nucleobase strings is not particularly useful, but was a simple way to introduce a tie-in between nucleobases and character encoding.
 

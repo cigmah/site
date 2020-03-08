@@ -14,50 +14,52 @@ You open the book on the table. Its cover says **Expedition Logs - Star Runner I
 
 You start reading.
 
-> ### 10th March 2050
-
+> ## 10th March 2050
+>
 > **Yuen**'s got The Cold today. This darn, mysterious Cold which seems to be making its rounds through the crew. While it doesn't seem deadly, it's been putting a stopper in our team morale. It seems to **last for only one day**, which we're thankful for, but we're worried it might have more sinister side effects - some of our group are expecting children and we have to be vigilant in case it's another infectious teratogen. We also cannot afford to endanger Silver Sun with an unknown infection. We must move fast.
-
+>
 > We remain isolated. **None of our expedition of 100 people has gotten in contact with anyone outside our group since the new year.** Until we know what this disease is, we should keep it that way.
-
+>
 > It seems most likely that **one person** had The Cold when we began our expedition **on January 1st** and was able to infect another person on that day. We suspect transmission is through air droplet exposure, with the natural history of The Cold appearing to be:
-
+>
 > 1. Day X: A person contracts The Cold from an infected host (but is not infectious on the day they contract it).
 > 2. Day X + 1: The person is **infectious** and symptomatic during the duration of this day and can transmit it to another person.
 > 3. Day X + 2 and onward: The person is no longer infectious or symptomatic, and is now **immune** to The Cold (and **can no longer be reinfected**).
-
+>
 > The Cold **does not always transmit when a person meets an infected host** - however, as the cold is only infectious for one day, the fact that it remains among us means **we can deduce that at least one person has contracted the cold every day from a host infected the previous day**.
-
+>
 > This is vital information. It means **we can trace a path from host to host from an infect*ious* host on January 1st, to Yuen who is infect*ious* today on March 10th** (i.e. **Yuen contracted The Cold yesterday by meeting an infected host on March 9th**, who themselves contracted The Cold by meeting an infected host on March 8th, and so on).
-
+>
 > We are fortunate that the ship has kept a log of **all meetings between two people** on each day of our expedition so far (from January 1st 2050 to March 9th 2050 inclusive). We can use this list of meetings to trace the infection back and hopefully arrive at single possible path that satisfies the constraints of the natural history of the cold. This is not as simple as it seems, as our crew is very tightly integrated: **crew members may meet mutiple people per day**. Backtracking is not as simple as it may seem as we must explore all possibilities: for example, if Clinton is infect*ious* today and met Alexander and Benson the previous day, we cannot know whether it was Alexander or Benson who was the infected host - we need to search through both possibilities. As you can imagine, the number of possibilities may grow rapidly as possibilities continue to branch off - when searching through the assumption that it was Alexander who was the host that day, if Alexander met Derekson and Emerald the day before, we also cannot know whether it was Derekson or Emerald who was the infected host and again we have to explore both possibilities separately, as well as those for Benson. We can only **exclude** possibilities once we are certain they violate the constraints of the natural history of the cold or the meeting trail does not extend back to January 1st.
-
+>
 > If we can trace the infection back to the **person who was infect*ious* on January 1st**, perhaps we can find out where it came from and stop it spreading further - both inside and outside our expedition. Many of our crew have been crew members on other ships; once we have established the source of our infection here, we can perhaps trace even further back and get to the bottom of The Cold. We have experienced too many cases where something innocuous has emerged as something deadly. We cannot afford to be complacent again.
 
 That sounds ominous. It must have been scary to be in an isolated environment with an unknown infection passing through. They even capitalised "The Cold" - that means business...
 
 It looks like you've got a list of meetings - each meeting consists of a date, a first person in that meeting and a second person in that meeting. A cursory look shows you that the order of the first person and second person within a meeting is just alphabetical order. You suppose you'll have to use the information above to find the person who was infectious on January 1st.
 
-## Input
+# Input
 
 [cgmnt_input07.csv](https://drive.google.com/open?id=1QpkZKuHlZWZrqQieGjGLpU2bzB1oQNxf) (89KB)
 
-## Statement
+# Statement
 
 State the name of the person who brought the infection to the expedition. (i.e. who was infect*ious* on January 1st 2050). (e.g. `YUEN`)
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team with passing reference to *Silversun* broadcast by the ABC.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `SCHOLZE`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You wonder what ever happened to the crew of Star Runner II. You wonder...but it seems like you'll never know.
 
@@ -69,20 +71,20 @@ vigenere
 
 Hm. It looks like it's going to be a long morning...
 
-### Writer's Notes
+## Writer's Notes
 
-#### Objectives
+### Objectives
 
 1. Use constraint programming, recursive search strategies or otherwise to traverse a graph
 2. Practise applying programming principles to a simple infection model to gather useful information.
 
-#### Context
+### Context
 
 Examining the spread of infection from host to host can be fairly arduous to do manually, but becomes much easier when we can automate the modelling process. Infection models are a highly studied topic within the medical field, and with great relevance to population health. Sometimes, we can even establish information such as where an infection came from - tracing infections back using a valid model of their behaviour, while perhaps unrealistic, is an interesting problem to solve.
 
 We hoped to present a simple case which we intended to be solved with constraint programming (though there are of course, other methods!). Using abstracted declarative programming methods may be one option for medical personnel who do not have time to invest in learning the finer implementations of algorithms, but still want to be able to use programming to automate some tasks. In such cases, learning how to define *what* is desired rather than *how* to achieve it may be a viable, useful and enjoyable endeavour. As programming languages evolve and paradigms shift, perhaps logic programming (already known for use in medical expert systems) could become more prevalent within the general medical community.
 
-#### Example Solution
+### Example Solution
 
 > Note: our example solutions are just one way of approaching the puzzle. They are not necessarily the best way, or even a good way!
 
@@ -99,7 +101,7 @@ data = pd.read_csv("https://drive.google.com/uc?id=1QpkZKuHlZWZrqQieGjGLpU2bzB1o
 
 
 ```python
-### We are given these values
+## We are given these values
 last_infected = "YUEN"
 last_date = "2050-03-09" # of the meetings we have
 start_date = "2050-01-01" # of the meetings we have
@@ -107,10 +109,10 @@ start_date = "2050-01-01" # of the meetings we have
 
 
 ```python
-### Preprocessing
-### -------------
+## Preprocessing
+## -------------
 
-### Convert possible names to id numbers
+## Convert possible names to id numbers
 unique_names = list(set(pd.concat([data["first"], data["second"]])))
 id_to_name = {i:n for i, n in enumerate(unique_names)}
 name_to_id = {n:i for i, n in enumerate(unique_names)}
@@ -128,23 +130,23 @@ next_dates = {date: next_date(date) for date in dates}
 
 dataset = set(data.apply(tuple, axis=1))
 
-### Constraint solution
-### --------------------
+## Constraint solution
+## --------------------
 
 problem = Problem()
 
-### Include all the meetings dates, plus the day after the last date
-### This is so we have consistency (i.e. dates are defined as when someone is infect*ious*)
+## Include all the meetings dates, plus the day after the last date
+## This is so we have consistency (i.e. dates are defined as when someone is infect*ious*)
 problem.addVariables(dates + [next_dates[last_date]], domain)
 
-### Beginning constraints
-### Yuen was infect*ious* on the day after the last day of the meeting set
+## Beginning constraints
+## Yuen was infect*ious* on the day after the last day of the meeting set
 problem.addConstraint(lambda x: x == name_to_id[last_infected], [next_dates[last_date]])
 
-### People cannot get the infection twice (i.e. each date must have a unique infect*ious* person)
+## People cannot get the infection twice (i.e. each date must have a unique infect*ious* person)
 problem.addConstraint(AllDifferentConstraint())
 
-### There must be a meeting between the infect*ious* person of a day and the infect*ious* person of the previous day
+## There must be a meeting between the infect*ious* person of a day and the infect*ious* person of the previous day
 def add_constraint(day):
     problem.addConstraint(lambda a, b: ((day, a, b) in dataset) or ((day, b, a) in dataset), [day, next_dates[day]])
 
@@ -159,7 +161,7 @@ print(id_to_name[solution[start_date]])
     SCHOLZE
 
 
-#### Extra Notes
+### Extra Notes
 
 We can also verify that this is the only solution.
 
@@ -255,7 +257,7 @@ print()
 
 
 
-#### Data Generation
+### Data Generation
 
 The infectious network input will consist of a list of meetings between people.
 
@@ -274,7 +276,7 @@ To create these tuples, we need to decide:
 
 At each generation step, we will enforce that a randomly selected case contribute to the "solution path" - i.e. we start by selecting a random case, generating a meeting, then follow the person they met to generate the next meeting and so on. At the end, we will solve to find solution paths and remove nodes to disrupt every solution path but one to ensure our solution is unique.
 
-##### Name Source
+#### Name Source
 
 We will use names from the `surnames` dataset provided as a public material by the Princeton Intro to Programming course, itself derived from a [public dataset by the US Census Bureau](https://www.census.gov/topics/population/genealogy/data/2000_surnames.html).
 
@@ -296,7 +298,7 @@ names = random.sample(list(surnames.name), k=num_names)
 name_set = set(names)
 ```
 
-##### Datetime Range
+#### Datetime Range
 
 We'll choose an arbitrary start date of Jan 1st 2050 and proceed until 67 days after that.
 
@@ -329,7 +331,7 @@ datetime.datetime.utcfromtimestamp(unix_end).date()
 
 So we end up on March 9th on the 67th day after Jan 1st 2050. Perfect timing for the puzzle!
 
-##### Meetings
+#### Meetings
 
 We'll define a function to make meetings of two types - random meeting, and solution meeting (which will guarantee us that at least one solution exists). The solution meeting will take the name of a previously infected person and an exclusion list and return a new meeting that includes the infected person and does not include someone in the exclusion list.
 
@@ -499,7 +501,7 @@ infection_meetings
 
 
 
-##### Checking for Unique Solutions
+#### Checking for Unique Solutions
 
 We solved the puzzle (using only the information participants would have) using the example solution we wrote above. We were lucky and there was only actually one solution (on a previous iteration, we had 4 and just removed a few nodes) so we could leave it as it was.
 

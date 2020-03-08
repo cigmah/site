@@ -80,16 +80,16 @@ between two medications (both unnamed) causing an outcome of interest. And it
 looks like this transmission wanted the receiver to determine what these two
 interacting medications were from the attached records.
 
-## Input
+# Input
 
 [cgmnt_input03.txt](https://drive.google.com/open?id=1K1PJ3XbyfL9p0gMvfXxr0bhJCBeS_Kj2) (446Kb)
 
-## Statement
+# Statement
 
 State the name of the anti-mycobacterial first, then the interacting drug. (e.g. `RIFAMPIN CULPRITASE`).
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt 2019 team. \
 
@@ -97,13 +97,15 @@ Here was a reference we found useful for making this puzzle:
 
 Phansalkar, S., Desai, A., Bell, D., Yoshida, E., Doole, J., Czochanski, M., Middleton, B. and Bates, D. (2012). High-priority drug–drug interactions for use in electronic health records. Journal of the American Medical Informatics Association, 19(5), pp.735-743.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `Iproniazid Amfepramone`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You feel gratified for having found the right answer and marvel at how far modern medicine has come since the year `0001`. To think, combining a stimulant with a MAO inhibitor! Not to mention all the other wacky combinations this hospital used...
 
@@ -115,9 +117,9 @@ The Map of the Medical Library of Babel is an HTML file.
 
 Hm. You wonder, how could there be a HTML file in that random collection of letters?
 
-### Writer's Notes
+## Writer's Notes
 
-#### Objectives
+### Objectives
 
 Our objectives for this puzzle were to incorporate:
 
@@ -134,14 +136,14 @@ When planning the puzzle, we intended the solving steps to be to:
 Because the objectives were based around basic text processing, we didn't strive for realism for the generated medication lists (or clinical briefs for that matter). We reasoned that the principles would be the same as long as the format of the input was similar, even if the actual content was nonsense.
 
 
-#### Context
+### Context
 
 Drug interactions are a vital consideration when prescribing, modifying prescriptions and evaluating symptoms. Many systems for automatically detecting drug interactions are available in various EMR software - although some clinicians might contest the usefulness of these alerts, it is one prominent example where software can assist in "catching" or flagging potential errors.
 
 We brainstormed potential ways of having participants emulate such a system. We eventually settled on a small problem involving some basic set operations to discover an interaction between two unknown drugs. While this puzzle is, of course, heavily simplified, we hoped that the simplification would make the puzzle accessible for beginners.
 
 
-#### Example Solution
+### Example Solution
 
 > Our example solutions are just one way of solving the puzzle. They're not necessarily the best way, or even a good way!
 
@@ -183,7 +185,7 @@ The three lines of this solution do the following:
 
 This gave only two medications, so we could stop there - if there were more, we would have had to check which combination also occurred in patients who didn't have the outcome.
 
-#### Data Generation
+### Data Generation
 
 We chose two drug classes based on [an article on high-priority drug interactions for EMR systems](https://dx.doi.org/10.1136%2Famiajnl-2011-000612) by Phansalkar et al. 2012, settling on the interaction between stimulants and MAO inhibitors. We also [read up on the history](https://www.ncbi.nlm.nih.gov/pubmed/23231399) of MAO inhibitors to help give the scenario some meaningful context and used its origins as an anti-mycobacterial to provide one of the clues.
 

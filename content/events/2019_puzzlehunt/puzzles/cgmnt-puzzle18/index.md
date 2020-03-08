@@ -34,26 +34,28 @@ In other words, instead of directly finding the lowest PEF measurement from the 
 
 ---
 
-## Input
+# Input
 
 Your puzzle input is [`cgmnt_input18.txt` (2.5kB, .txt)](https://drive.google.com/open?id=1IzRkSQbmOryWq924NPGr65ug60hlidYb).
 
-## Statement
+# Statement
 
 On what date was Annie's PEF z-score (calculated against other PEFs on that weekday) the lowest? Express your answer as eight digits in the format YYYYMMDD e.g. `20180225`.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `20180629`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You are glad that you can group peak flow measurements by weekday.
 
@@ -65,7 +67,7 @@ The letters on each exit of the map correspond to one-letter codes of amino acid
 
 You question whether you remember anything about amino acids.
 
-### Writer's Notes
+## Writer's Notes
 
 We apologise for the clumsy wording in the puzzle. The actual solution to this puzzle is very simple as it lends itself very well to an array programming approach, given that the year's worth of peak flow measurements (or more precisely, the 364 days of peak flow measurements) can be expressed as a `52x7` matrix of float values. When the data is reshaped in this manner, one need only calculate the mean and standard deviation along columns (giving a `1x7` row matrix for the means, and for the standard deviations) then subtract the mean row vector from every row in the original `52x7` data matrix, divide each row by the standard deviation row vector, then find the index of the lowest z-score and map it to the corresponding date. Most array languages or libraries (e.g. Python's `numpy`) will handle the array broadcasting automatically, so no loops are explicitly required.
 
@@ -95,7 +97,7 @@ using Statistics
 using Dates
 using DelimitedFiles
 
-### Minus 1 at the end as Julia is 1-indexed
+## Minus 1 at the end as Julia is 1-indexed
 readdlm("cgmnt_input18.txt")                      |>
     x -> reshape(x, (7,52))                       |>
     x -> (x .- mean(x, dims=2)) ./ std(x, dims=2) |>
@@ -133,14 +135,14 @@ days = [np.random.normal(mean, std, (52,))
 
 flattened = np.reshape(np.stack(days, axis=1), (-1))
 
-### Make a single bad day on the day with the highest mean.
+## Make a single bad day on the day with the highest mean.
 random_week = np.random.randint(10, 52)
 random_day = random_week * 7 + highest_day
 
-### Print the random_day
+## Print the random_day
 print(random_day)
 
-### Modify in-place
+## Modify in-place
 flattened[random_day] = means[highest_day] - (2.5 * stds[highest_day])
 
 with open("output.txt", 'w+') as outfile:

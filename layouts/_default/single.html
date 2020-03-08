@@ -80,6 +80,12 @@
         </article>
     </section>
 
+    {{ if (not (eq $current .Site.Home)) }}
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
+    {{ end }}
+
 </section>
 
 {{ end }}

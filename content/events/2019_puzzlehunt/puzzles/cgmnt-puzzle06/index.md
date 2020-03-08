@@ -102,49 +102,32 @@ Thus, allergic rhinitis can be classified into four groups:
 
 You think you understand the problem - Dr Rhinal's given you a list of form data submitted by patients and wants you to figure out what classification of allergic rhinitis each patient would fall into. You could see the utility for this - after all, the classification is very specific and Dr Rhinal could spend less time classifying, and more time managing.
 
-## Input
+# Input
 
 [cgmnt_input06.csv](https://drive.google.com/open?id=1WfX4jj8XYS0rqM_9hr_idXHqFU49kcSd) (165KB)
 
 Templates on [Binder](https://mybinder.org/v2/gh/cigmah/cgmnt-beginners/master), [Azure Notebooks](https://notebooks.azure.com/cigmah-cgmnt/projects/cgmnt) and [GitHub](https://github.com/cigmah/cgmnt-beginners/).
 
-## Statement
+# Statement
 
 State the number of patients in Dr Rhinal's list with **moderate-to-severe persistent** allergic rhinitis.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
 [1] This reference table for classification of allergic rhinitis is from the [Australian Asthma Handbook](https://www.asthmahandbook.org.au/table/show/54).
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `1758`.
 
-## Explanation
+# Explanation
 
-#### Map Hint
-
-You give yourself a pat on the back. If only all ailments could be cured by toggling a few nucleotides!
-
-You open `map_hint.txt`. It has only two words:
-
-```text
-tabula recta
-```
-
-Hm. Well on to the next room...
-
-#### Writer's Notes
-
-##### Context
-
-For our "Automatic, Automata"-themed month, we thought it would be fitting to have an interactive visualisation of a cellular automata given they had some clear applications to biology. A cellular automata model of a heart is [not](https://www.ncbi.nlm.nih.gov/pubmed/8812071) [a](https://www.ncbi.nlm.nih.gov/pubmed/27087101) [new concept](https://www.researchgate.net/publication/270451596_3D_Heart_Modeling_with_Cellular_Automata_Mass-Spring_System_and_CUDA), but we chose to implement ours from scratch in [Elm with WebGL](https://package.elm-lang.org/packages/elm-explorations/webgl/latest/) so we could control the parameters explicitly and make it into a puzzle. Our model is greatly simplified and probably approximates a single ventricle moreso than a heart, but hopefully should get similar ideas across.
-
-
-### Map Hint
+## Map Hint
 
 Great work! It's been a long time since you last played an RPG, but you have to wonder what *Rhinal RPG* would have been like...
 
@@ -156,14 +139,14 @@ shifting caesar
 
 Hm..."caesar"? That reminds you, you haven't eaten for a while. Better find a way out of this library soon...
 
-### Writer's Notes
+## Writer's Notes
 
-#### Objectives
+### Objectives
 
 1. Practise basic CSV reading and processing using Pandas.
 2. Practise implementing a simple classification system.
 
-#### Context
+### Context
 
 There are some tasks in medicine which are readily amenable to automation - some classifications and interpretive algorithms are simple and specific enough that automation could be used to free up some time to do other things. What's more, being able to describe these classifications and algorithms to a computer means that these can be replicated exactly and without much cost, which can improve both the reliability and accessibility of such tools.
 
@@ -171,7 +154,7 @@ Many algorithms in medicine, however, are primarily for "guidance" and it is oft
 
 We chose a very simple, and very specific, classification for allergic rhinitis to help beginners have a go at using code in some way that integrates with medical learning and hopefully shows a very approachable case of where coding can help provide tools to assist medical care. We were very much aware that this puzzle could be completed in Excel (which most people will be familiar with to some extent). We hoped that an Excel-solvable problem could help make the coded solution more easily digestible by pointing out similarities and differences between Excel's capabilities and a Python implementation using Pandas.
 
-#### Example Solution
+### Example Solution
 
 > Note: Our example solutions are just one way of approaching our puzzles. They're not necessarily the best way, or even a good way!
 
@@ -214,7 +197,7 @@ sum(df.apply(is_mod_persistent, axis=1))
 
 
 
-#### Data Generation
+### Data Generation
 
 In order to classify allergic rhinitis according to the guidelines we've referenced, we need the following information:
 
@@ -293,8 +276,8 @@ class Patient(object):
 ```python
 num_patients = 5000
 
-### From reference (2)
-### mild intermittent, mild persistent, mod intermittent, mod persistent
+## From reference (2)
+## mild intermittent, mild persistent, mod intermittent, mod persistent
 choices = [(True, True), (False, True), (True, False), (False, False)]
 props = [0.274, 0.208, 0.171, 0.347]
 
@@ -305,7 +288,7 @@ inputs = [("{0:06d}".format(i), *c) for i, c in zip(ids, classes)]
 
 data = [Patient(*input_data).data for input_data in inputs]
 
-### shuffle, though it should already be random...
+## shuffle, though it should already be random...
 random.shuffle(data)
 ```
 
@@ -389,7 +372,7 @@ len([c for c in classes if c == (False, False)])
 
 Great!
 
-##### References
+#### References
 
 [1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2671762/
 

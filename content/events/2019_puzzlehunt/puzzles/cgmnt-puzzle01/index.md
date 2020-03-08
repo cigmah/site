@@ -4,12 +4,12 @@ description = "2019 Puzzle Hunt - Puzzle 01M"
 date = "2019-01-23"
 +++
 
-*This puzzle was released on 2019-02-23, and was the Meta puzzle for the theme *Meta**
+> *This puzzle was released on 2019-02-23, and was the Meta puzzle for the theme *Meta**
 
 > *The universe (which others call the Library) is composed of an indefinite and
 > perhaps infinite number of hexagonal galleries, with vast air shafts between,
 > surrounded by very low railings.*
-
+>
 > *-- Jorge Luis Borges, "The Library of Babel" (Translated by James E Irby)*
 
 ![Imgur](https://i.imgur.com/Ix8Urkt.gif)
@@ -122,26 +122,28 @@ able to decipher the map? Will you ever find your way out of this gigantic libra
 Will you be late to the first ward round?</p>
 </details>
 
-## Input
+# Input
 
 [cgmnt_input01.txt](./data/cgmnt_input01.txt) (723KB)
 
-## Statement
+# Statement
 
 State the correct label of the exit on the map and the minimum number of rooms between the start room and the exit, non-inclusive. (e.g. `E-F 4`).
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `L-V 41`.
 
-## Explanation
+# Explanation
 
-### Aftermath
+## Aftermath
 
 Eureka! You can finally get out of this infernal library. And it's only 8am - there's still time!
 
@@ -157,9 +159,9 @@ You enter the main hospital building feeling like the protagonist of an adventur
 
 And yet...where is this Ward 2837E that you are supposed to go to? Your smile fades as you realise how big the hospital is and how astronomically small your chances are of finding your ward team are in the next thirty seconds. You peer around the corner looking for the reception desk, but you can't seem to find it anywhere either. If only there was a map...
 
-### Solution
+## Solution
 
-#### Answer
+### Answer
 
 
 ```python
@@ -167,7 +169,7 @@ And yet...where is this Ward 2837E that you are supposed to go to? Your smile fa
 ```
 
 
-#### Writer's Notes
+### Writer's Notes
 
 We ended up deciding on this puzzle after deciding that the theme for the puzzle hunt would be *The Library of Babel* by Jorge Luis Borges. Our choice of theme underwent several iterations - from unicode, to a epidemiology-based infection source finder, to *The Little Prince*, to *1984*. We decided on *The Library of Babel* given it's accessibility as a short story, and the flexibility of books being a source of data.
 
@@ -268,7 +270,6 @@ from itertools import cycle, islice
 
 ## Ported from the Elm code used to make map
 x_rep = [ 1, 1, 0, -1, -1, 0 ]
-
 y_rep = [ 2, 3, 3, 3, 4, 5 ]
 
 ## Minus 1 from y_rep as the original was relative to (0,1)

@@ -62,7 +62,7 @@ The puzzle of this room is *Allele Inference*.
 7. There is only one solution, and it is definitively deducible from the data
     and information you have been provided.
 
-## Input
+# Input
 
 - [All files.](https://drive.google.com/drive/folders/17BHi9E84w3fYcOuHa9t-wVtEKEMK4N2R?usp=sharing)
 - [cgmnt13_people.txt](https://drive.google.com/file/d/1XsIDMI2KF2tQquZd5lMy7ivAP_-rqNNo/view?usp=sharing) (718B)
@@ -70,22 +70,24 @@ The puzzle of this room is *Allele Inference*.
 - [cgmnt13_heterozygous.txt](https://drive.google.com/file/d/1YNVkHvkx4tvspngjKiGtVRiya3GM3uic/view?usp=sharing) (228B)
 - [cgmnt13_known.txt](https://drive.google.com/file/d/11ccf7VuUPiLd8fvQ0AsQ9M41b6_94VwH/view?usp=sharing) (927B)
 
-## Statement
+# Statement
 
 State the total number of members in the Imperial Family who have a *homozygous dominant* genotype.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `36`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
  You are proud of your ability to deduce, but realise that life is not usually
  this deterministic. You reflect on your powerlessness to confront the messiness
@@ -106,7 +108,7 @@ The correct solution was `36`.
  Well this is finally useful. You experience a feeling of deja vu of a feeling
  of deja vu.
 
-### Writer's Notes
+## Writer's Notes
 
 We sincerely apologise, but our Writer's Notes for this month are very sparse.
 We have provided our solutions, but that's it for now. A proper writeup
@@ -120,7 +122,7 @@ This puzzle wasn't originally intended as a constraint puzzle (since we've done
 that a few other times), but we realised it was easier than what we originally
 tried with miniKanren, so we rolled with it.
 
-#### Example Solution
+### Example Solution
 
 
 ```python
@@ -128,8 +130,8 @@ import re
 from pathlib import Path
 from itertools import product
 from constraint import *
-###
-### Data load and preprocessing
+##
+## Data load and preprocessing
 people       = Path('./cgmnt13_people.txt').read_text().splitlines()
 reparent     = re.compile(r'(\w+) is the child of (\w+) and (\w+).')
 parents      = reparent.findall(Path('./cgmnt13_relations.txt').read_text())
@@ -137,49 +139,49 @@ heterozygous = set(Path('./cgmnt13_heterozygous.txt').read_text().splitlines())
 reknown      = re.compile(r'(\w+) is homozygous (\w+).')
 known        = reknown.findall(Path('./cgmnt13_known.txt').read_text())
 
-### Possible genotypes assuming each person has 2 alleles for a gene, represented as number of dominant alleles.
+## Possible genotypes assuming each person has 2 alleles for a gene, represented as number of dominant alleles.
 genotypes = tuple(set(map(sum, product((0,1), repeat=2))))
 
-### Possible children for each genotype
+## Possible children for each genotype
 parentcombos    = list((product(product((0,1), repeat=2), repeat=2)))
 parentgenotypes = list(map(lambda p: tuple(set(map(sum, p))), parentcombos))
 childgenotypes  = [tuple(set(map(sum, product(*p)))) for p in parentcombos]
 validchildtype  = {combo: child for combo, child in set(zip(parentgenotypes, childgenotypes))}
 
-### Add problem and variables
+## Add problem and variables
 problem = Problem()
 problem.addVariables(people, genotypes)
 
-### Define constraint that child genotype must be valid given parent genotypes
+## Define constraint that child genotype must be valid given parent genotypes
 def addParentConstraint(ch, par1, par2):
     problem.addConstraint(lambda c, p1, p2: c in validchildtype[tuple(set((p1,p2)))], (ch, par1, par2))
 
-### Add valid child genotype constraint
+## Add valid child genotype constraint
 [addParentConstraint(*relation) for relation in parents]
 
-### Genotype constraints.
+## Genotype constraints.
 addHeterozygousConstraint = lambda person: problem.addConstraint(lambda p: p == 1, (person,))
 addHomozygousConstraint   = lambda person: problem.addConstraint(lambda p: p == 0 or p == 2, (person,))
 addKnownGenotype          = lambda person, genotype: problem.addConstraint(lambda p: p == genotype, (person,))
 
-### Add known heterozygous members.
+## Add known heterozygous members.
 [addHeterozygousConstraint(person) for person in heterozygous]
 
-### Other known genotypes
+## Other known genotypes
 knowntotype = {"recessive": 0, "dominant": 2}
 [addKnownGenotype(d[0], knowntotype[d[1]]) for d in known]
 
-### Restrict the remainder to homozygous.
+## Restrict the remainder to homozygous.
 [addHomozygousConstraint(person) for person in people if person not in heterozygous]
 
 solution = problem.getSolution()
 
-### Count the homozygous dominant genotype
+## Count the homozygous dominant genotype
 print(len([name for name, genotype in solution.items() if genotype == 2]))
 
-### To verify one solution only.
-### solutions = problem.getSolutions()
-### print(solutions)
-### print(len(solutions))
+## To verify one solution only.
+## solutions = problem.getSolutions()
+## print(solutions)
+## print(len(solutions))
 ```
 

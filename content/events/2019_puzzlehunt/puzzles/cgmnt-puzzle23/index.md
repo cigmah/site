@@ -32,26 +32,28 @@ Oh dear. This medical lecturer is not happy with you. In fact, he will only let 
 
 Will you be able to do it? Why is he shaped like a computer? Are you hallucinating? There's only one way to find out...
 
-## Input
+# Input
 
 The puzzle can be played at [https://cgmnt-run-run-run-run.netlify.com/](https://cgmnt-run-run-run-run.netlify.com/). You can choose to do *either* the **Year 1** or **Year 2** question sets - both yield the same codeword.
 
-## Statement
+# Statement
 
 Enter the codeword found after successfully answering 40 True-or-False preclinical questions in 60 seconds.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `CITYCORCIMFO`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You did it! The computer-shaped medical lecturer glares at you and walks away. You make your way back to the room. There's no computer there anymore (well, of course, the computer was really just a computer-shaped medical lecturer in the first place) but there's a piece of paper. It reads:
 
@@ -61,7 +63,7 @@ The minimum number of rooms between the start room and the exit room is an odd n
 
 How mildly helpful.
 
-### Writer's Notes
+## Writer's Notes
 
 This was a simple puzzle from a coding perspective, but the questions took a significant amount of time to write. As always, this was coded with Elm but there was very little actual code involved - most of our efforts went into forming the questions and their explanations. We hope that this will be of help to students as exams approach.
 

@@ -30,26 +30,28 @@ following day to catch up.
 
 Non-alphanumeric characters are stripped. Punctuation and spacing doesn't matter.
 
-## Input
+# Input
 
 [cgmnt_input12.txt (1KB)](https://drive.google.com/file/d/1Xd4s7tHgW195xHNAr1uQNVGjZ_g-aO31/view?usp=sharing)
 
-## Statement
+# Statement
 
 When the patients are scheduled successfully, state the time (in 4-digit 24 hour time) when Dr Noehtmi's only scheduled break starts.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `1220`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
  Your ability to logically reschedule patients is impressive. You wonder if you
  could schedule more things. Sleep, perhaps.
@@ -68,7 +70,7 @@ The correct solution was `1220`.
 
  Well this is finally useful. You experience a feeling of deja vu.
 
-### Writer's Notes
+## Writer's Notes
 
 We sincerely apologise, but our writer's notes for this month are very sparse.
 We have provided our solutions, but that's it for now. A proper writeup
@@ -86,10 +88,10 @@ from constraint import *
 from pathlib import Path
 from datetime import datetime, timedelta
 
-### Default by datetime.strptime when parsing hours and minutes alone.
+## Default by datetime.strptime when parsing hours and minutes alone.
 d0 = datetime(1900, 1, 1, 8, 0)
 
-### Preprocessing. Wish Python had more functional idioms.
+## Preprocessing. Wish Python had more functional idioms.
 redata   = re.compile(r'(\w+) is available between (.*)\.')
 data     = redata.findall(Path("./cgmnt_input12.txt").read_text())
 names    = [t[0] for t in data]
@@ -97,17 +99,17 @@ timestrs = [tuple(map(lambda s: s.split(" to "), t[1].split("and"))) for t in da
 times    = list(map(lambda rs:tuple(map(lambda r:tuple(map(lambda s:\
            int((datetime.strptime(s.strip(),"%H:%M")-d0).total_seconds()/60),r)),rs)),timestrs))
 
-### Allowable appointment slots in minutes since start of workday.
+## Allowable appointment slots in minutes since start of workday.
 slots = range(0, 60 * 9, 20)
 
 problem = Problem()
 
-### Add variables and with the appropriate domain for each person's availabilities.
+## Add variables and with the appropriate domain for each person's availabilities.
 for name, time in zip(names, times):
     domain = [s for s in slots if any(map(lambda t: t[0] <= s <= s + 20 <= t[1], time))]
     problem.addVariable(name, domain)
 
-### No clashing appointments
+## No clashing appointments
 problem.addConstraint(AllDifferentConstraint())
 
 solution      = sorted([(time, name) for name, time in problem.getSolution().items()])

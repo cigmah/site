@@ -27,28 +27,28 @@ You open the book on the computer.
 <br>
 
 > Your task in this puzzle is to write a program that will classify images of fundi as either "normal" or "CRAO" with reasonable accuracy.
-
+>
 > Your puzzle input consists of two folders containing 1000 images each. All images are `.png` files with dimensions `75x75` pixels.
-
+>
 > The first folder, `input09_training/` contains 1000 ground-truth images: 500 normal fundi and 500 fundi suggesting CRAO. Each image file is of the form `XXXX_normal.png` or `XXXX_crao.png` for some ID `XXXX` (e.g. `0001_normal.png`).
-
+>
 > This is a normal fundus:
-
-![Normal](https://lh3.googleusercontent.com/daVg5cRKjxz7pnm525yiaoD_pL4By0hIGi6hU1M91lmHUA-0brGyCgGKVIv-INjFFr5Jn6yHy6OLwGaLxKLP2KR7-ciGzvNsWSYtlESDh270sXxAVcQLm3M_kmUrKhSpYL9-HGcBXA=s198-p-k)
-
+>
+> ![Normal](https://lh3.googleusercontent.com/daVg5cRKjxz7pnm525yiaoD_pL4By0hIGi6hU1M91lmHUA-0brGyCgGKVIv-INjFFr5Jn6yHy6OLwGaLxKLP2KR7-ciGzvNsWSYtlESDh270sXxAVcQLm3M_kmUrKhSpYL9-HGcBXA=s198-p-k)
+>
 > This fundus is suggestive of a CRAO:
-
-![CRAO](https://lh3.googleusercontent.com/YysI3HZycEtwEQU5Zkq-l9iQhhxTGmuuE-3OIurVo6aerW8o4uofXiMPQilx4wTGMQFawr2E2YpS9vhgPR1gUJpkHhg64A6r4_r2X-QTx_XoKpRCqK84tIs12hC8kc8C8Sy-0BqO3g=s198-p-k)
-
+>
+> ![CRAO](https://lh3.googleusercontent.com/YysI3HZycEtwEQU5Zkq-l9iQhhxTGmuuE-3OIurVo6aerW8o4uofXiMPQilx4wTGMQFawr2E2YpS9vhgPR1gUJpkHhg64A6r4_r2X-QTx_XoKpRCqK84tIs12hC8kc8C8Sy-0BqO3g=s198-p-k)
+>
 > Each ID is unique. You may use this training data to train a classifier to distinguish between normal and CRAO fundi.
-
+>
 >  The second folder, `input10_test/` contains 1000 images for classification. Each image is of the form `XXXX_Y.png` for some ID `XXXX` and for some alphabet character `Y` (e.g. `0001_Z.png`).
-
+>
 > Identify all the images in the second folder `input10_test` which suggest CRAO. Once you have identified all these images and put them in order of their ID, the resulting characters will spell out a short riddle for you to solve.
 
 <br>
 
-## Input
+# Input
 
 [cgmnt_input09/](https://drive.google.com/drive/folders/1w2fptmKRlkYdQf5D5yCbCWuEU56qOGLM?usp=sharing), containing:
 
@@ -57,22 +57,24 @@ You open the book on the computer.
 
 Templates on [Binder](https://mybinder.org/v2/gh/cigmah/cgmnt-beginners/master), [Azure Notebooks](https://notebooks.azure.com/cigmah-cgmnt/projects/cgmnt) and [GitHub](https://github.com/cigmah/cgmnt-beginners/).
 
-## Statement
+# Statement
 
 State the answer to the riddle formed by the CRAO images in `input10_test/`.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt team. We also generated the images; no external images were used in the process. Details of the image generation are revealed in the Writer's Notes after the puzzle is solved.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `RB`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You pat yourself on the back for having outwitted this fundal atlas. If only it were so easy in real life...
 
@@ -86,14 +88,14 @@ Key from "La Biblioteca de Babel":
 
 You wonder what this could mean.
 
-### Writer's Notes
+## Writer's Notes
 
-#### Objectives
+### Objectives
 
 1. Introduce applications of computer vision (image classification) and machine learning in medical image interpretation.
 2. Provide sample, sanitised training and test data for image classification, of reasonable similarity to medical images.
 
-#### Context
+### Context
 
 We were very keen to write a basic image classification puzzle as it was one of the most prominent applications of machine learning/artifical intelligence in clinical medicine. Images are particularly central to specialties such as radiology, pathology, ophthalmology and dermatology - so much so, that there have been growing claims and fears that machines could dramatically alter (or even replace) the work of doctors in these specialties. The future of image classification tasks in medicine is unclear at this point, but the use of computer interpretation is certainly becoming more and more widespread (though clearly on a much more complex scale than we have indicated in this puzzle).
 
@@ -101,7 +103,7 @@ We chose to generate fundi as an example, and chose to make the problem one of c
 
 We spent a *lot* of time trying to get our generated fundi to look semi-realistic (mostly on vessel paths and branching). We have a principle of minimising our use of external data in CIGMAH, and this was no exception; we wanted to generate all of our images automatically and *without* using any "base" clinical images - i.e. all our images were to be generated *de novo*. Fundi were something we felt were feasible to simulate with array operations, geometry and filters, and indeed we were able to come up with a simple fundi generator using `matplotlib` and `PIL` - no clinical images needed. Although this means models won't generalise to real clinical datasets (which are much messier), it does mean we can have participants undergo the whole image-to-model training and classification process and achieve very good results, even with a completely naive network. The model may be different, but the principles are similar.
 
-#### Example Solution
+### Example Solution
 
 > Note: Our example solutions are just one way of approaching our puzzles. They're not necessarily the best way, or even a good way!
 
@@ -131,7 +133,7 @@ And our solution:
 
 
 ```python
-### PREPROCESSING
+## PREPROCESSING
 trainglob = "./input09_training/*.png"
 trainfs = sorted(glob(trainglob))
 renm = re.compile(r".*?(\d+)_(\w+).png")
@@ -139,7 +141,7 @@ trainlabs = DF.from_records([{k: renm.match(f)[i] for k,i in zip(["id", "class"]
 trainlabs["class"] = trainlabs["class"].apply(lambda c: 0 if c=="normal" else 1)
 trainims = np.stack([imread(f) / 255 for f in trainfs], axis=0)
 
-### MODEL
+## MODEL
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(75, 75, 3)),
     keras.layers.Dense(64, activation=tf.nn.relu),
@@ -149,14 +151,14 @@ model = keras.Sequential([
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.fit(trainims, np.array(trainlabs["class"]), epochs=5)
 
-### MODEL PREDICTIONS
+## MODEL PREDICTIONS
 testglob = "./input09_test/*.png"
 testfs = sorted(glob(testglob))
 testims = np.stack([imread(file) / 255 for file in testfs], axis=0)
 testlabs = DF.from_records([{k: renm.match(f)[i] for k,i in zip(["id", "class"], [1,2])} for f in testfs])
 preds = [np.argmax(p) for p in model.predict(testims)]
 
-### RIDDLE
+## RIDDLE
 icrao = np.array([i for i, p in enumerate(preds) if p == 1])
 letters = "".join(testlabs.loc[icrao,"class"])
 print(letters)
@@ -182,13 +184,13 @@ You can see the classification accuracy is not 100%, but the riddle is still leg
 
 This riddle refers to the two letters `RB`, which is the standard symbol for the retinoblastoma protein (the gene of which should be very familiar to medical students as it is often the prototypical gene for explaining the ["two-hit hypothesis"](https://en.wikipedia.org/wiki/Knudson_hypothesis)).
 
-#### Image Generation
+### Image Generation
 
 We were very time-pressured this month with a variety of other tasks, so our image generation code is neither clean, nor optimised, nor short. In the future, we hope to have time to redo this code (now that we know better) and possibly rewrite it for a client-side generator that could be called from the browser. Much of our dissatisfaction with the current code is the number of loops through Numpy arrays; we have high hopes in either APL or J that we could fit this code on a business card, as it really is mostly array manipulation...all we need is to find the time!
 
 We have not had the time this month to walkthrough this image generation code step-by-step as we have done previously, but we have clarified a few points briefly where appropriate.
 
-##### Setup
+#### Setup
 
 
 ```python
@@ -212,7 +214,7 @@ from matplotlib import patches
 %matplotlib inline
 ```
 
-##### Constants
+#### Constants
 
 
 ```python
@@ -220,7 +222,7 @@ radius = 64
 imextent = [-radius, radius, -radius, radius]
 ```
 
-##### General Functions
+#### General Functions
 
 
 ```python
@@ -273,7 +275,7 @@ def make_imnoise(ax, radius, scalefactor, redmodifier=1, green=0.35, blue=0.25):
             extent=imextent)
 ```
 
-##### Background
+#### Background
 
 
 ```python
@@ -367,7 +369,7 @@ make_bg(-20, 0, 10, 10, 0, 8, crao=True)
 
 
 
-##### Vessels
+#### Vessels
 
 We spent most of our effort on creating semi-realistic depictions of vessels on the retina. Currently, we have implemented a recursive branching algorithm that widens the vessel on each branch (such that vessels with more branches appear thicker) and with gradual deviation towards the fovea. There are a large number of random variables incorporated in this to ensure the vessel patterns are unique.
 
@@ -502,7 +504,7 @@ make_vessels(-32, 0, 10, 0, 8, 0.5, numbranches=3)
 
 
 
-##### Intermediate Shadows
+#### Intermediate Shadows
 
 
 ```python
@@ -536,7 +538,7 @@ make_inter()
 
 
 
-##### Optic Disc
+#### Optic Disc
 
 
 ```python
@@ -613,7 +615,7 @@ make_od(-32, 5, 10)
 
 
 
-##### Optic Disc Highlight
+#### Optic Disc Highlight
 
 
 ```python
@@ -657,7 +659,7 @@ make_odhighlight(-32, 0)
 
 
 
-##### Noise
+#### Noise
 
 
 ```python
@@ -693,7 +695,7 @@ make_noise()
 
 
 
-##### Compositing
+#### Compositing
 
 
 ```python
@@ -793,7 +795,7 @@ make_fundus(crao=True)
 
 We downsampled these images to 75 by 75 pixels for the actual input.
 
-##### Training Set
+#### Training Set
 
 500 normal and 500 "with" CRAO.
 
@@ -812,7 +814,7 @@ for i in range(871, 1000):
     image.save(save_directory + fileid)
 ```
 
-##### Riddle
+#### Riddle
 
 We tried to ensure that the pattern of letters wouldn't give away the riddle, so we generated the letters randomly and only allocated a CRAO image if incidentally this corresponded to the next letter in the riddle.
 
@@ -846,7 +848,7 @@ while position < max_position:
     image.save(save_directory + fileid)
     counter += 1
 
-### Fill up to 1000.
+## Fill up to 1000.
 while counter <= 1000:
     new_letter = random.choice(alphabet)
     fileid = "{0:04d}_{1:1s}.png".format(counter, new_letter)

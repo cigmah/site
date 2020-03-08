@@ -46,26 +46,28 @@ This spells the word "HELLO" (you will need to interpret the letter-forms - they
 
 You must do the same for your test data, which is 44 seconds (44000 samples) long. While in practice, your training data would need to be much larger for this sort of problem, the training and test data we have provided should be sufficient to solve this puzzle.
 
-## Input
+# Input
 
 [Click here to download your input data (4 .txt files: 422 KB, 516 KB, 3MB and 240 bytes)](https://drive.google.com/open?id=1ZGiSzuZ4_js82XwVyZA9DoUoLB_yOhJb)
 
-## Statement
+# Statement
 
 State the word traced out by the *test* data when it is decoded into a stream of cursor movements.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `SIGNAL`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You wonder what the future will look like.
 
@@ -77,7 +79,7 @@ You will arrive at the dead-end room D-H on the last, 25th puzzle.
 
 What's this?
 
-### Writer's Notes
+## Writer's Notes
 
 ![Answer](https://i.imgur.com/y0Iu9hG.gif)
 
@@ -98,14 +100,14 @@ import numpy as np
 from turtle import *
 from typing import List
 
-### Read the training data
+## Read the training data
 with open('cgmnt_input22_training_data.txt') as infile:
     RAW_TRAINING_DATA = infile.readlines()
 
 with open('cgmnt_input22_training_labels.txt') as infile:
     RAW_TRAINING_LABELS = infile.read()
 
-### Define directions classes as integers
+## Define directions classes as integers
 LABELS_DICT = {
     'U': 0,
     'R': 1,
@@ -113,17 +115,17 @@ LABELS_DICT = {
     'L': 3,
 }
 
-### Define conversion function from data text lines to numpy array in proper shape
+## Define conversion function from data text lines to numpy array in proper shape
 def to_array(lines: List[str]) -> np.ndarray:
     return np.array([list(map(int, list(line.strip()))) for line in lines])\
           .transpose()\
           .reshape(-1, 1000, 12) # trials x samples x channel array
 
-### Convert training data to arrays
+## Convert training data to arrays
 ARRAY_TRAINING_DATA = to_array(RAW_TRAINING_DATA)
 ARRAY_TRAINING_LABELS = tf.one_hot(np.array([LABELS_DICT[c] for c in RAW_TRAINING_LABELS]), depth=4)
 
-### Define and fit a model
+## Define and fit a model
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Flatten(input_shape=(1000,12)))
 model.add(tf.keras.layers.Dense(144, activation='relu'))
@@ -134,13 +136,13 @@ model.add(tf.keras.layers.Dense(4, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(ARRAY_TRAINING_DATA, ARRAY_TRAINING_LABELS, epochs=10, batch_size=10)
 
-### Read the example data and process
-### with open('cgmnt_input22_example_data.txt') as infile:
-###     RAW_EXAMPLE_DATA = infile.readlines()
-### ARRAY_EXAMPLE_DATA = to_array(RAW_EXAMPLE_DATA)
-### EXAMPLE_PREDICTIONS = tf.argmax(model.predict(ARRAY_EXAMPLE_DATA), axis=1).numpy().tolist()
+## Read the example data and process
+## with open('cgmnt_input22_example_data.txt') as infile:
+##     RAW_EXAMPLE_DATA = infile.readlines()
+## ARRAY_EXAMPLE_DATA = to_array(RAW_EXAMPLE_DATA)
+## EXAMPLE_PREDICTIONS = tf.argmax(model.predict(ARRAY_EXAMPLE_DATA), axis=1).numpy().tolist()
 
-### Define a drawing function
+## Define a drawing function
 STEP_SIZE = 20
 def draw_predictions(predictions: List[int]) -> None:
     # Face up first
@@ -163,9 +165,9 @@ def draw_predictions(predictions: List[int]) -> None:
             right(90)
     done()
 
-### draw_predictions(EXAMPLE_PREDICTIONS)
+## draw_predictions(EXAMPLE_PREDICTIONS)
 
-### Read the test data and perform the exact same as the example data
+## Read the test data and perform the exact same as the example data
 with open('cgmnt_input22_test_data.txt') as infile:
     RAW_TEST_DATA = infile.readlines()
 ARRAY_TEST_DATA = to_array(RAW_TEST_DATA)

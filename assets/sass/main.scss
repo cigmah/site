@@ -57,9 +57,9 @@ header {
 
 footer {
     padding: 1rem;
-    padding-bottom: 2rem;
-    max-width: $container-width - 20px;
-    margin: auto;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    margin-left: $sidenav-width + 72px;
     z-index: 50;
     text-align: right;
     border-top: 1px dotted $grey;
@@ -68,6 +68,7 @@ footer {
     }
     @media only screen and (max-width: $mobile) {
         padding: 1rem;
+        margin-left: 0;
     }
 }
 
@@ -416,7 +417,7 @@ pre, code {
     @media only screen and (max-width: $mobile) {
         font-size: 1.4rem;
         letter-spacing: -0.5px;
-        margin: 2rem 0 0.5rem 0;
+        margin: 1.5rem 0 0.25rem 0;
     }
     &:hover {
         background: $black;
@@ -530,16 +531,13 @@ pre, code {
 }
 
 #container {
-    margin-left: $sidenav-width + 20px;
-    padding-left: 3rem;
+    margin-left: $sidenav-width + 72px;
     min-height: 72vh;
     @media print {
         margin-left: 0;
-        padding-left: 0;
     }
     @media only screen and (max-width: $mobile) {
         margin-left: 0;
-        padding-left: 0;
         padding: 0.1rem;
     }
 }
@@ -633,8 +631,19 @@ pre, code {
     }
     hr {
         border: none;
-        border-top: 1px solid $grey;
-        margin: 3rem 0;
+        border-top: 3px double $grey;
+        margin: 4rem 0;
+        position: relative;
+        &:after {
+            content: "§";
+            position: absolute;
+            top: -1em;
+            left: 45%;
+            text-align: center;
+            background: $white;
+            margin: auto;
+            width: 10%;
+        }
     }
     details {
         border: 1px dotted $grey;

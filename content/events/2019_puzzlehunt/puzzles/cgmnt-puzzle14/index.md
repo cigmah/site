@@ -44,28 +44,30 @@ If you manage to keep the ball on the bar for 60 seconds successfully, you will 
 
 A ball, a balancing bar, and some acid-base knowledge...how hard could it be?
 
-## Input
+# Input
 
 [Play at https://cgmnt-base-balance-ball-borders.netlify.com/](https://cgmnt-base-balance-ball-borders.netlify.com/).
 
 This game works best on Chrome, Safari or Firefox on a desktop computer.
 
-## Statement
+# Statement
 
 State the codeword shown after successfully completing 60 seconds of the game without letting the ball fall off the bar.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team. We found the [Anaesthesia MCQ Acid Base Book](https://www.anaesthesiamcq.com/AcidBaseBook/) a helpful resource when writing this puzzle.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `BICARB`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You feel proud of your ability to balance things. Then you realise you have no work-life balance and you stop feeling proud and just feel a little sad.
 
@@ -85,7 +87,7 @@ browser.
 
 Maybe you'll get that map after all.
 
-### Writer's Notes
+## Writer's Notes
 
 The source code for this puzzle will be released on the CIGMAH GitHub organisation after the puzzle hunt. A longer writeup will accompany this puzzle on the main CIGMAH website when we get time.
 

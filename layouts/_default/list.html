@@ -1,4 +1,7 @@
 {{ define "main" }}
+
+{{ $current := .Section }}
+
 <section class="normal-page">
     <article id="side-navigation">
         <article id="toggle-side-navigation-container">
@@ -43,5 +46,14 @@
             </section>
         </article>
     </section>
+
+    {{ if (not (eq $current .Site.Home)) }}
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
+    {{ end }}
+
+
+
 </section>
 {{ end }}

@@ -28,28 +28,30 @@ The puzzle of this room is *NeuroLogic*.
 
 Good luck.
 
-## Input
+# Input
 
 [Play.](http://cgmnt-neuro-logic-board.netlify.com)
 
 Note that we have only tested on Chrome and Safari. Firefox has known issues. We apologise for the inconvenience as we work to resolve this.
 
-## Statement
+# Statement
 
 State the codeword shown after successfully  localising 10 lesions in a row.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `SOMA`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You reflect on the logic in neurology. Perhaps it would be easier to learn all these pathways if they could be shown interactively.
 
@@ -67,7 +69,7 @@ You reflect on the logic in neurology. Perhaps it would be easier to learn all t
 
  Well this is finally useful.
 
-### Writer's Notes
+## Writer's Notes
 
 We sincerely apologise, but our Writer's Notes for this month are very sparse.
 We have provided our solutions, but that's it for now. A proper writeup

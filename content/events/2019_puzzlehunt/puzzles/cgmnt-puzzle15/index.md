@@ -84,30 +84,32 @@ If you win outright, you will be shown a codeword to submit as your submission.
 
 It's been a while since you've done your psychiatry rotations. You hope you have retained your knowledge of psychopharmacology.
 
-## Input
+# Input
 
 [Play the game at https://cgmnt-worst-offender-psychopharmocards.netlify.com/](https://cgmnt-worst-offender-psychopharmocards.netlify.com/).
 
 This game works best on Chrome or Firefox on a desktop computer. Safari has some known colour issues.
 
-## Statement
+# Statement
 
 State the codeword shown after successfully winning a game of *Worst Offender* outright.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
 We referenced [Hamer & Muench 2010](https://www.aafp.org/afp/2010/0301/p617.html) when coding the side effect profiles of each card in this game.
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `ZIPR`.
 
-## Explanation
+# Explanation
 
-### Map Hint
+## Map Hint
 
 You feel proud for retaining your knowledge of psychopharmacology, but then remember that you have never prescribed anything in your life before. As a new intern, the thought of prescribing in real life scares you.
 
@@ -125,7 +127,7 @@ The start room is one of the grey hexagons.
 
 That's not much of a hint.
 
-### Writer's Notes
+## Writer's Notes
 
 The source code for this puzzle will be released on the CIGMAH GitHub organisation after the puzzle hunt. A longer writeup will accompany this puzzle on the main CIGMAH website when we get time.
 

@@ -49,27 +49,140 @@ Obstetrician & Gynaecologist
 
 You briefly reflect on whether a person's name might affect their occupational choice later in life.
 
-## Input
+# Input
 
 Your puzzle input is [`cgmnt_input19.txt` (840.7kB, .txt)](https://drive.google.com/open?id=1gqaQBmhHDYisF-u1IXvJCXKLsh5uXTMM).
 
-## Statement
+# Statement
 
 Submit the name of the location which has the highest ratio of HPV16 to HPV18 detections.
 
 
-## References
+# References
 
 Written by the CIGMAH Puzzle Hunt Team.
 
 The data for this puzzle is generated data. The code to generate the data is available after the puzzle is solved. The result template is based on [sample results from the Cancer Council website](https://wiki.cancer.org.au/australia/Guidelines:Cervical_cancer/Screening/Sample_cervical_screening_reports).
 
-## Answer
+---
+
+# Answer
 
 The correct solution was `Honeydew Mountains`.
 
-## Explanation
-### CONVENIENCE FUNCTIONS
+# Explanation
+
+Here's an example solution using the Python standard library. It's not very short, and we are sure you could write this shorter. We would love to see other solutions in the comments.
+
+```python
+import re
+from collections import Counter
+
+with open("cgmnt_input19.txt") as infile:
+  query = re.compile(r"Location: ([\w ]+)\n* +HPV 16: +([\w ]+)\n +HPV 18: +([\w ]+)")
+  results = query.findall(infile.read())
+  hpv_16s = Counter([result[0] for result in results if result[1] == 'DETECTED'])
+  hpv_18s = Counter([result[0] for result in results if result[2] == 'DETECTED'])
+  ratios = {k: hpv_16s[k] / hpv_18s[k] for k in hpv_16s.keys()}
+  print([r for r in ratios.keys() if ratios[r] >= max(ratios.values())])
+```
+```
+['Honeydew Mountains']
+```
+And here's all the ratios:
+
+```python
+Coral Beach: 0.84
+Maroon Island: 1.2142857142857142
+Violet Acre: 2.8666666666666667
+Snow Hills: 0.7441860465116279
+Beige Town: 0.8235294117647058
+Yellow Green Hinterlands: 1.0
+Honeydew Mountains: 3.0625
+Wheat Farm: 0.29545454545454547
+Lime City: 2.05
+Rosy Brown Street: 2.5238095238095237
+Orchid Forest: 1.0434782608695652
+Dodger Blue Trench: 1.1714285714285715
+Khaki Lane: 2.25
+Ivory Fields: 1.0666666666666667
+Teal Woods: 0.8571428571428571
+Fuchsia Greens: 0.7586206896551724
+Navy Reef: 0.13043478260869565
+Azure Meadows: 0.1694915254237288
+Peru: 0.10416666666666667
+Gainsboro Plains: 0.42105263157894735
+```
+
+The solution is fairly straightforward once you make a regular expression to parse the text results. This is probably one of the easier Challenge puzzles we've released so far and was not originally the puzzle we were going to release this month for the Challenge, but we did not have enough time to polish the other puzzle.
+
+Here's the generation code for this dataset. Neither clear nor concise, but it did its job.
+
+```python
+import random
+from typing import List
+
+### DEFINING CONSTANTS
+
+### HPV Results
+HPV_16 = 0
+HPV_18 = 1
+HPV_OTHER = 2
+HPV_TYPES = [HPV_16, HPV_18, HPV_OTHER]
+
+### LBC Results
+LBC_NEGATIVE = 0
+LBC_LSIL = 1
+LBC_HSIL = 2
+
+LBC_RESULTS = [LBC_NEGATIVE, LBC_LSIL, LBC_HSIL]
+
+LBC_RESULT_STRINGS = {
+  LBC_NEGATIVE: "No intrapethelial lesions identified.",
+  LBC_LSIL: "Low-grade squamous intraepithelial lesion (LSIL).",
+  LBC_HSIL: "High-grade squamous intraepithelial lesion (HSIL).",
+}
+
+RESULT_TEMPLATE = "    Liquid based cytology (LBC): {result}\n\nRECOMMENDATION: {recommendation}\n"
+
+LOCATIONS = [
+  "Azure Meadows",
+  "Beige Town",
+  "Coral Beach",
+  "Dodger Blue Trench",
+  "Fuchsia Greens",
+  "Gainsboro Plains",
+  "Honeydew Mountains",
+  "Ivory Fields",
+  "Khaki Lane",
+  "Lime City",
+  "Maroon Island",
+  "Navy Reef",
+  "Orchid Forest",
+  "Peru",
+  "Rosy Brown Street",
+  "Snow Hills",
+  "Teal Woods",
+  "Violet Acre",
+  "Wheat Farm",
+  "Yellow Green Hinterlands",
+]
+
+def make_random_ratio() -> List[float]:
+  # Corresponds to HPV_16, HPV_18, HPV_OTHER
+  raws = [random.random(), random.random(), random.random()]
+  summed = sum(raws)
+  return [r / summed for r in raws]
+
+LOCATION_RATIOS = {location: make_random_ratio() for location in LOCATIONS}
+
+FULL_TEMPLATE = """
+Patient ID: {id:04d}
+Location: {location}
+{result}
+{recommendation}"""
+
+## CONVENIENCE FUNCTIONS
 
 def make_recommendation(hpv_types: List[int]) -> str:
   if (HPV_16 in hpv_types) or (HPV_18 in hpv_types):
