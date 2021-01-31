@@ -12,7 +12,7 @@ description = "About CIGMAH."
 
 # Why CIGMAH? 
 
-Many medical students who have an interest in technology will be able to sustain
+Many medical students with an interest in technology will be able to sustain
 their interest by approaching technical challenges from the medical side.
 Clinical experience is often invaluable to engineering teams and provides
 important insight into the healthcare landscape.
